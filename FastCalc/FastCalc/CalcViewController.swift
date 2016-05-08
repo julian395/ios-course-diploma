@@ -15,6 +15,10 @@ class CalcViewController: UIViewController {
     
     @IBOutlet weak var resultLabel: UILabel!
     
+    
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var moreView: UIView!
+    
     private var operationActive = 0
     private var enterFlag = 1
     private var igrikFlag = 1
@@ -23,7 +27,6 @@ class CalcViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -268,12 +271,33 @@ class CalcViewController: UIViewController {
     }
  
     @IBAction func decimal(sender: UIButton) {
-        
         if decimalPoint == 0
         {
             decimalPoint = 1
             resultLabel.text = resultLabel.text! + "."
         }
+    }
+    
+    @IBOutlet weak var moreChanged: UIButton!
+    
+    @IBAction func moreButton(sender: UIButton) {
+        if moreView.hidden == false
+        {
+           // moreChanged.setTitle("More", forState: .Normal) //uncomment this
+            moreView.hidden = true
+            moreChanged.frame.origin.y = 19
+            resultLabel.frame.origin.y = 19
+            mainView.frame.origin.y = 94
+        }
+        else
+        {
+          //  moreChanged.setTitle("Hide", forState: .Normal) // uncomment this
+            moreView.hidden = false
+            moreChanged.frame.origin.y = 234
+            resultLabel.frame.origin.y = 234
+            mainView.frame.origin.y = 309
+        }
+
     }
         
     @IBAction func clearAll(sender: UIButton) {
@@ -287,14 +311,4 @@ class CalcViewController: UIViewController {
 
         resultLabel.text = " " + "0" + " "
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

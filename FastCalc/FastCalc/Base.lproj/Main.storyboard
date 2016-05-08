@@ -720,11 +720,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.82870967120000005" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMT-z6-2hL">
+                                <rect key="frame" x="0.0" y="234" width="75" height="19"/>
+                                <state key="normal" title="More"/>
+                                <connections>
+                                    <action selector="moreButton:" destination="par-9u-aur" eventType="touchUpInside" id="VbW-WX-nVl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="mainView" destination="Obn-IU-oSs" id="V6b-l4-x2E"/>
+                        <outlet property="moreChanged" destination="JMT-z6-2hL" id="h3U-W6-6kV"/>
+                        <outlet property="moreView" destination="qgL-Ym-Ofu" id="YbZ-TF-8gB"/>
                         <outlet property="resultLabel" destination="6IA-3h-1gh" id="cL6-qN-1O7"/>
                     </connections>
                 </viewController>
