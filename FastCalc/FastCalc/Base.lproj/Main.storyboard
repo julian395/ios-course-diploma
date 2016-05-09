@@ -86,25 +86,6 @@
                                             <action selector="digitals:" destination="par-9u-aur" eventType="touchUpInside" id="tjg-f6-eeX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-La-xUf" customClass="MyCustomButton" customModule="FastCalc" customModuleProvider="target">
-                                        <rect key="frame" x="278" y="70" width="97" height="70"/>
-                                        <color key="backgroundColor" red="0.30871792802833942" green="0.69142754610552359" blue="0.97235576923076927" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="x">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="operations:" destination="par-9u-aur" eventType="touchUpInside" id="QCg-MX-bHm"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcU-MA-TpB" customClass="MyCustomButton" customModule="FastCalc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="140" width="96" height="70"/>
                                         <color key="backgroundColor" white="0.82870967116131877" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,6 +146,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="minusButtonAnimation:" destination="par-9u-aur" eventType="touchUpInside" id="Qu5-9c-WJb"/>
                                             <action selector="operations:" destination="par-9u-aur" eventType="touchUpInside" id="E4h-oz-AWj"/>
                                         </connections>
                                     </button>
@@ -272,6 +254,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="divideButtonAnimation:" destination="par-9u-aur" eventType="touchUpInside" id="7PG-jL-Lkf"/>
                                             <action selector="operations:" destination="par-9u-aur" eventType="touchUpInside" id="Sc8-db-F9B"/>
                                         </connections>
                                     </button>
@@ -358,6 +341,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="operations:" destination="par-9u-aur" eventType="touchUpInside" id="4O4-cN-aNL"/>
+                                            <action selector="plusButtonAmination:" destination="par-9u-aur" eventType="touchUpInside" id="AvW-01-GHG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="105" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdX-Vd-pcs" customClass="MyCustomButton" customModule="FastCalc" customModuleProvider="target">
@@ -376,6 +360,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="equalButtonAnimation:" destination="par-9u-aur" eventType="touchUpInside" id="kfA-Bs-Osy"/>
                                             <action selector="operations:" destination="par-9u-aur" eventType="touchUpInside" id="c1y-Iv-yrD"/>
                                         </connections>
                                     </button>
@@ -421,6 +406,26 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="decimal:" destination="par-9u-aur" eventType="touchUpInside" id="Bgr-eS-iYg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-La-xUf" customClass="MyCustomButton" customModule="FastCalc" customModuleProvider="target">
+                                        <rect key="frame" x="278" y="70" width="97" height="70"/>
+                                        <color key="backgroundColor" red="0.30871792802833942" green="0.69142754610552359" blue="0.97235576923076927" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="x">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="multiplyButtonAnimation:" destination="par-9u-aur" eventType="touchUpInside" id="wi1-wK-tX0"/>
+                                            <action selector="operations:" destination="par-9u-aur" eventType="touchUpInside" id="QCg-MX-bHm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -639,28 +644,6 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" tag="110" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFn-vA-tqD" customClass="MyCustomButton" customModule="FastCalc" customModuleProvider="target">
-                                        <rect key="frame" x="96" y="19" width="91" height="79"/>
-                                        <color key="backgroundColor" white="0.82870967120000005" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="y√x">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.1050802094" green="0.74750220749999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="operations:" destination="par-9u-aur" eventType="touchUpInside" id="d26-4e-SwV"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jef-2V-G8J" customClass="MyCustomButton" customModule="FastCalc" customModuleProvider="target">
                                         <rect key="frame" x="187" y="19" width="91" height="79"/>
                                         <color key="backgroundColor" white="0.82870967120000005" alpha="1" colorSpace="calibratedWhite"/>
@@ -717,6 +700,29 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" tag="110" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFn-vA-tqD" customClass="MyCustomButton" customModule="FastCalc" customModuleProvider="target">
+                                        <rect key="frame" x="96" y="19" width="91" height="79"/>
+                                        <color key="backgroundColor" white="0.82870967120000005" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="y√x">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.1050802094" green="0.74750220749999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="igrikToXAnimation:" destination="par-9u-aur" eventType="touchUpInside" id="ynp-gG-2eb"/>
+                                            <action selector="operations:" destination="par-9u-aur" eventType="touchUpInside" id="d26-4e-SwV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -738,11 +744,42 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="OneToXOutlet" destination="2aw-9d-BRO" id="821-3U-Uof"/>
+                        <outlet property="clearOutlet" destination="L0j-zX-SJT" id="X7E-0c-o8E"/>
+                        <outlet property="cosinusOutlet" destination="aQX-m0-XGu" id="ugJ-Rx-moV"/>
+                        <outlet property="decimalOutlet" destination="GYq-XL-VW0" id="V1K-RO-tJw"/>
+                        <outlet property="digit0" destination="akS-iZ-H1m" id="Ssh-pX-dNF"/>
+                        <outlet property="digit1" destination="7TJ-af-1pf" id="ofP-vD-N6T"/>
+                        <outlet property="digit2" destination="6PP-cR-k3V" id="BEG-Te-NFQ"/>
+                        <outlet property="digit3" destination="YHe-n7-rgb" id="dWb-VQ-Y9W"/>
+                        <outlet property="digit4" destination="RcU-MA-TpB" id="4b1-yv-42P"/>
+                        <outlet property="digit5" destination="9jC-8b-kQE" id="0aJ-G1-p2X"/>
+                        <outlet property="digit6" destination="LUE-Wx-3k8" id="hvJ-Wb-EsS"/>
+                        <outlet property="digit7" destination="0Jv-zP-tvU" id="ZaK-qV-oU0"/>
+                        <outlet property="digit8" destination="mmY-Tn-NyM" id="HSd-1U-Xef"/>
+                        <outlet property="digit9" destination="hly-G6-Avb" id="Nmv-Es-8qN"/>
+                        <outlet property="eilerOutlet" destination="31U-ah-35O" id="oEi-dn-KOV"/>
+                        <outlet property="eilerToXOutlet" destination="XYh-yo-jqp" id="FW0-8C-Blq"/>
+                        <outlet property="equalOutlet" destination="QdX-Vd-pcs" id="xdo-VY-4RR"/>
+                        <outlet property="igrikToXOutlet" destination="oFn-vA-tqD" id="4FY-pc-bzo"/>
+                        <outlet property="inverseOutlet" destination="edz-Mw-veE" id="Upv-w4-1g2"/>
+                        <outlet property="logarifmOutlet" destination="jef-2V-G8J" id="WhJ-aG-eZU"/>
                         <outlet property="mainView" destination="Obn-IU-oSs" id="V6b-l4-x2E"/>
                         <outlet property="moreChanged" destination="JMT-z6-2hL" id="h3U-W6-6kV"/>
                         <outlet property="moreView" destination="qgL-Ym-Ofu" id="YbZ-TF-8gB"/>
                         <outlet property="numberShowButton" destination="Hbh-yp-1rL" id="ffd-4y-qnw"/>
+                        <outlet property="operation1" destination="2jj-mb-Fev" id="gAa-zn-Vi3"/>
+                        <outlet property="operation2" destination="Jbz-La-xUf" id="iJ5-qv-vzf"/>
+                        <outlet property="operation3" destination="Quo-eG-u1V" id="uma-5E-cop"/>
+                        <outlet property="operation4" destination="BIl-9z-QCB" id="5vU-TL-Cas"/>
+                        <outlet property="percentOutlet" destination="I1u-bP-8la" id="nbA-87-M9y"/>
+                        <outlet property="piOutlet" destination="AWd-PP-TQ5" id="aZS-ZN-A7g"/>
                         <outlet property="resultLabel" destination="6IA-3h-1gh" id="cL6-qN-1O7"/>
+                        <outlet property="sinusOutlet" destination="Jze-xg-e0Y" id="CQJ-fi-GlX"/>
+                        <outlet property="sqrtXOutlet" destination="FKI-qU-xj1" id="YCS-zT-Yad"/>
+                        <outlet property="tangensOutlet" destination="gJi-ZK-GTV" id="vmU-HE-gNj"/>
+                        <outlet property="xCubeOutlet" destination="Gao-Ny-g7y" id="sK8-3B-3ik"/>
+                        <outlet property="xSquareOutlet" destination="2tI-HZ-fcV" id="2MB-ub-faT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zaT-ni-MTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
