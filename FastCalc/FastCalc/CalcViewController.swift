@@ -721,25 +721,38 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var moreChanged: UIButton!
     
     @IBAction func moreButton(sender: UIButton) {
-        if hideIndicator == 0
+        moreView.transform = CGAffineTransformMakeScale(0.6, 0.6)
+        
+        UIView.animateWithDuration(2.0,
+                                   delay: 0,
+                                   usingSpringWithDamping: CGFloat(0.20),
+                                   initialSpringVelocity: CGFloat(6.0),
+                                   options: UIViewAnimationOptions.AllowUserInteraction,
+                                   animations: {
+                                    self.moreView.transform = CGAffineTransformIdentity
+            },
+                                   completion: { Void in()  }
+        )
+        
+              if hideIndicator == 0
         {
             hideIndicator = 1
-           // moreChanged.setTitle("Hide", forState: .Normal) //uncomment this
+            moreChanged.setTitle("More", forState: .Normal) //uncomment this
             moreView.hidden = true
-            moreChanged.frame = CGRect(x: 0, y: 19, width: moreChanged.frame.size.width, height: moreChanged.frame.size.height)
-            resultLabel.frame = CGRect(x: 0, y: 19, width: resultLabel.frame.size.width, height: resultLabel.frame.size.height)
-            mainView.frame = CGRect(x: 0, y: 94, width: mainView.frame.size.width, height: mainView.frame.size.height)
-            numberShowButton.frame = CGRect(x: 278, y: 75, width: numberShowButton.frame.size.width, height: numberShowButton.frame.size.height)
+            self.moreChanged.transform = CGAffineTransformTranslate( self.moreChanged.transform, 0.0, -215.0  )
+            self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, -215.0  )
+            self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, -215.0  )
+            self.numberShowButton.transform = CGAffineTransformTranslate( self.numberShowButton.transform, 0.0, -215.0  )
         }
         else if hideIndicator == 1
         {
             hideIndicator = 0
-         //   moreChanged.setTitle("More", forState: .Normal) // uncomment this
+            moreChanged.setTitle("Hide", forState: .Normal) // uncomment this
             moreView.hidden = false
-            moreChanged.frame = CGRect(x: 0, y: 234, width: moreChanged.frame.size.width, height: moreChanged.frame.size.height)
-            resultLabel.frame = CGRect(x: 0, y: 234, width: resultLabel.frame.size.width, height: resultLabel.frame.size.height)
-            mainView.frame = CGRect(x: 0, y: 309, width: mainView.frame.size.width, height: mainView.frame.size.height)
-            numberShowButton.frame = CGRect(x: 278, y: 290, width: numberShowButton.frame.size.width, height: numberShowButton.frame.size.height)
+            self.moreChanged.transform = CGAffineTransformTranslate( self.moreChanged.transform, 0.0, 215.0  )
+            self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, 215.0  )
+            self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, 215.0  )
+            self.numberShowButton.transform = CGAffineTransformTranslate( self.numberShowButton.transform, 0.0, 215.0  )
         }
 
     }
