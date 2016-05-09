@@ -425,10 +425,10 @@
                                     </button>
                                 </subviews>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IA-3h-1gh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IA-3h-1gh">
                                 <rect key="frame" x="0.0" y="234" width="375" height="76"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -718,13 +718,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.82870967120000005" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMT-z6-2hL">
-                                <rect key="frame" x="0.0" y="234" width="75" height="19"/>
-                                <state key="normal" title="More"/>
+                                <rect key="frame" x="0.0" y="234" width="75" height="20"/>
+                                <state key="normal" title="Hide"/>
                                 <connections>
                                     <action selector="moreButton:" destination="par-9u-aur" eventType="touchUpInside" id="VbW-WX-nVl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbh-yp-1rL">
+                                <rect key="frame" x="278" y="290" width="97" height="20"/>
+                                <connections>
+                                    <action selector="showNumber:" destination="par-9u-aur" eventType="touchUpInside" id="BW3-HJ-emS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -735,6 +741,7 @@
                         <outlet property="mainView" destination="Obn-IU-oSs" id="V6b-l4-x2E"/>
                         <outlet property="moreChanged" destination="JMT-z6-2hL" id="h3U-W6-6kV"/>
                         <outlet property="moreView" destination="qgL-Ym-Ofu" id="YbZ-TF-8gB"/>
+                        <outlet property="numberShowButton" destination="Hbh-yp-1rL" id="ffd-4y-qnw"/>
                         <outlet property="resultLabel" destination="6IA-3h-1gh" id="cL6-qN-1O7"/>
                     </connections>
                 </viewController>

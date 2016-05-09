@@ -12,6 +12,7 @@ class CalcViewController: UIViewController {
 
     var x : Double = 0.0
     var y : Double = 0.0
+    var hideIndicator = 0
     
     @IBOutlet weak var resultLabel: UILabel!
     
@@ -22,9 +23,10 @@ class CalcViewController: UIViewController {
     private var operationActive = 0
     private var enterFlag = 1
     private var igrikFlag = 1
-    private var decimalPoint = 0
+    var decimalPoint = 0
     var power = 1
-    
+    var numberFormatter = NSNumberFormatter()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -35,8 +37,18 @@ class CalcViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func showNumber(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+        let alertView = UIAlertView(title: "Full number", message: "this is your number:  \(x)", delegate: self, cancelButtonTitle: "OK")
+        alertView.show()
+    }
+    
+    @IBOutlet weak var numberShowButton: UIButton!
 
     @IBAction func digitals(sender: AnyObject) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
         if enterFlag == 1
         {
             x = 0
@@ -45,178 +57,226 @@ class CalcViewController: UIViewController {
         if decimalPoint == 0
         {
             x = x * 10 + Double(sender.tag)
-            switch String(x)
+            let t = numberFormatter.stringFromNumber(x)!
+            switch t
             {
             case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + String(Int(t))
             default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
             }
-            
+       
         }
         else
         {
-            x = x + Double(sender.tag)/pow(10, Double(power))
-            power += 1
-            switch String(x)
+            x = x + (Double(sender.tag)/pow(10, Double(power)))
+            power = power + 1
+            let t = numberFormatter.stringFromNumber(x)!
+            switch t
             {
             case let z where z.hasSuffix(".0"):
-                resultLabel.text = " " + String(Int(x)) + " "
+                resultLabel.text = " " + String(Int(t))
             default:
-                resultLabel.text = " " + String(x) + " "
+                resultLabel.text = " " + t
             }
-
+        }
+        if resultLabel.text?.characters.count > 18
+        {
+            numberShowButton.setTitle("full number", forState: .Normal)
         }
     }
     
     @IBAction func numberEiler(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+
         x = 2.7182818285
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
 
     }
     
     
     @IBAction func xCube(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+
         x = pow(x,3)
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
 
     }
     
     @IBAction func xSquare(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+
         x = pow(x,2)
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
 
     }
     
     
     @IBAction func sqrtX(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+
         x = sqrt(x)
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
 
     }
     
     @IBAction func oneToX(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+
         x = 1/x
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
-
     }
     
     @IBAction func numberPi(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+
         x = 3.1415926536
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
-
     }
     
     @IBAction func sinus(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
         x = sin(x)
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
-
     }
     
     
     @IBAction func logarifm(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
         x = log(x)
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
 
     }
     
     
     @IBAction func eilerToX(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
         x = pow(2.7182818285, x)
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
 
     }
     
     @IBAction func tangens(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
         x = tan(x)
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
 
     }
     
     @IBAction func cosinus(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
         x = cos(x)
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
     }
     
     @IBAction func inverse(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
         x = -x
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
-        }
+            resultLabel.text = " " + t         }
 
     }
     
     @IBAction func operations(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
        if enterFlag != 1 && igrikFlag == 1
         {
             switch operationActive
@@ -232,12 +292,13 @@ class CalcViewController: UIViewController {
                 case 110:
                 x = pow(y, 1/x)
                 default:
-                    switch String(x)
+                    let t = numberFormatter.stringFromNumber(x)!
+                    switch t
                     {
                     case let z where z.hasSuffix(".0"):
-                        resultLabel.text = " " + String(Int(x)) + " "
+                        resultLabel.text = " " + String(Int(t))
                     default:
-                        resultLabel.text = " " + String(x) + " "
+                        resultLabel.text = " " + t
                 }
 
             }
@@ -246,26 +307,31 @@ class CalcViewController: UIViewController {
         y = x
         igrikFlag = 1
         enterFlag = 1
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + String(Int(t))
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
 
         power = 0
-        //decimalPoint = 0
+        decimalPoint = 0
     }
 
     @IBAction func percent(sender: UIButton) {
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+
         x = x / 100
-        switch String(x)
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(x)) + " "
+            resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + String(x) + " "
+            resultLabel.text = " " + t
         }
 
     }
@@ -281,21 +347,25 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var moreChanged: UIButton!
     
     @IBAction func moreButton(sender: UIButton) {
-        if moreView.hidden == false
+        if hideIndicator == 0
         {
-           // moreChanged.setTitle("More", forState: .Normal) //uncomment this
+            hideIndicator = 1
+           // moreChanged.setTitle("Hide", forState: .Normal) //uncomment this
             moreView.hidden = true
-            moreChanged.frame.origin.y = 19
-            resultLabel.frame.origin.y = 19
-            mainView.frame.origin.y = 94
+            moreChanged.frame = CGRect(x: 0, y: 19, width: moreChanged.frame.size.width, height: moreChanged.frame.size.height)
+            resultLabel.frame = CGRect(x: 0, y: 19, width: resultLabel.frame.size.width, height: resultLabel.frame.size.height)
+            mainView.frame = CGRect(x: 0, y: 94, width: mainView.frame.size.width, height: mainView.frame.size.height)
+            numberShowButton.frame = CGRect(x: 278, y: 75, width: numberShowButton.frame.size.width, height: numberShowButton.frame.size.height)
         }
-        else
+        else if hideIndicator == 1
         {
-          //  moreChanged.setTitle("Hide", forState: .Normal) // uncomment this
+            hideIndicator = 0
+         //   moreChanged.setTitle("More", forState: .Normal) // uncomment this
             moreView.hidden = false
-            moreChanged.frame.origin.y = 234
-            resultLabel.frame.origin.y = 234
-            mainView.frame.origin.y = 309
+            moreChanged.frame = CGRect(x: 0, y: 234, width: moreChanged.frame.size.width, height: moreChanged.frame.size.height)
+            resultLabel.frame = CGRect(x: 0, y: 234, width: resultLabel.frame.size.width, height: resultLabel.frame.size.height)
+            mainView.frame = CGRect(x: 0, y: 309, width: mainView.frame.size.width, height: mainView.frame.size.height)
+            numberShowButton.frame = CGRect(x: 278, y: 290, width: numberShowButton.frame.size.width, height: numberShowButton.frame.size.height)
         }
 
     }
@@ -308,7 +378,7 @@ class CalcViewController: UIViewController {
         igrikFlag = 1
         decimalPoint = 0
         power = 1
-
-        resultLabel.text = " " + "0" + " "
+        resultLabel.text = " " + "0"
+        numberShowButton.setTitle("", forState: .Normal)
     }
 }
