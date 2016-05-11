@@ -75,10 +75,18 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func showNumber(sender: UIButton) {
+       buttonAnimation(numberShowButton)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-        let alertView = UIAlertView(title: "Full number", message: "this is your number:  \(x)", delegate: self, cancelButtonTitle: "OK")
-        alertView.show()
+        switch String(x)
+        {
+        case let z where z.hasSuffix(".0"):
+            let alertView = UIAlertView(title: "Full number", message: "this is your number:  \(Int(x))", delegate: self, cancelButtonTitle: "OK")
+            alertView.show()
+        default:
+            let alertView = UIAlertView(title: "Full number", message: "this is your number:  \(x)", delegate: self, cancelButtonTitle: "OK")
+            alertView.show()
+        }
     }
     
     @IBOutlet weak var numberShowButton: UIButton!
@@ -179,21 +187,9 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func numberEiler(sender: UIButton) {
-        eilerOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.eilerOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(eilerOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-
         x = 2.7182818285
         let t = numberFormatter.stringFromNumber(x)!
         switch t
@@ -203,26 +199,13 @@ class CalcViewController: UIViewController {
         default:
             resultLabel.text = " " + t
         }
-
     }
     
     
     @IBAction func xCube(sender: UIButton) {
-        xCubeOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.xCubeOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(xCubeOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-
         x = pow(x,3)
         let t = numberFormatter.stringFromNumber(x)!
         switch t
@@ -232,25 +215,12 @@ class CalcViewController: UIViewController {
         default:
             resultLabel.text = " " + t
         }
-
     }
     
     @IBAction func xSquare(sender: UIButton) {
-        xSquareOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.xSquareOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(xSquareOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-
         x = pow(x,2)
         let t = numberFormatter.stringFromNumber(x)!
         switch t
@@ -260,26 +230,13 @@ class CalcViewController: UIViewController {
         default:
             resultLabel.text = " " + t
         }
-
     }
     
     
     @IBAction func sqrtX(sender: UIButton) {
-        sqrtXOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.sqrtXOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(sqrtXOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-
         x = sqrt(x)
         let t = numberFormatter.stringFromNumber(x)!
         switch t
@@ -289,25 +246,12 @@ class CalcViewController: UIViewController {
         default:
             resultLabel.text = " " + t
         }
-
     }
     
     @IBAction func oneToX(sender: UIButton) {
-        OneToXOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.OneToXOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(OneToXOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-
         x = 1/x
         let t = numberFormatter.stringFromNumber(x)!
         switch t
@@ -320,21 +264,9 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func numberPi(sender: UIButton) {
-        piOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.piOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(piOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-
         x = 3.1415926536
         let t = numberFormatter.stringFromNumber(x)!
         switch t
@@ -347,23 +279,11 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func sinus(sender: UIButton) {
-        sinusOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.sinusOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(sinusOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
         x = sin(x)
         let t = numberFormatter.stringFromNumber(x)!
-        
         switch t
         {
         case let z where z.hasSuffix(".0"):
@@ -375,23 +295,11 @@ class CalcViewController: UIViewController {
     
     
     @IBAction func logarifm(sender: UIButton) {
-        logarifmOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.logarifmOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(logarifmOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
         x = log(x)
         let t = numberFormatter.stringFromNumber(x)!
-        
         switch t
         {
         case let z where z.hasSuffix(".0"):
@@ -399,23 +307,11 @@ class CalcViewController: UIViewController {
         default:
             resultLabel.text = " " + t
         }
-
     }
     
     
     @IBAction func eilerToX(sender: UIButton) {
-        eilerToXOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.eilerToXOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(eilerToXOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
         x = pow(2.7182818285, x)
@@ -427,27 +323,14 @@ class CalcViewController: UIViewController {
         default:
             resultLabel.text = " " + t
         }
-
     }
     
     @IBAction func tangens(sender: UIButton) {
-        tangensOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.tangensOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(tangensOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
         x = tan(x)
         let t = numberFormatter.stringFromNumber(x)!
-        
         switch t
         {
         case let z where z.hasSuffix(".0"):
@@ -455,22 +338,10 @@ class CalcViewController: UIViewController {
         default:
             resultLabel.text = " " + t
         }
-
     }
     
     @IBAction func cosinus(sender: UIButton) {
-        cosinusOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.cosinusOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
+        buttonAnimation(cosinusOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
         x = cos(x)
@@ -485,19 +356,7 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func inverse(sender: UIButton) {
-        inverseOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.inverseOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
-
+        buttonAnimation(inverseOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
         x = -x
@@ -507,19 +366,27 @@ class CalcViewController: UIViewController {
         case let z where z.hasSuffix(".0"):
             resultLabel.text = " " + t
         default:
-            resultLabel.text = " " + t         }
-
+            resultLabel.text = " " + t
+        }
     }
     
     @IBAction func operations(sender: UIButton) {
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-       if enterFlag != 1 && igrikFlag == 1
+        if enterFlag != 1 && igrikFlag == 1
         {
             switch operationActive
             {
                 case 101:
+                if x != 0
+                {
                 x = y / x
+                }
+                else
+                {
+                let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to divide by 0", delegate: self, cancelButtonTitle: "Close")
+                ZeroAlertView.show()
+                }
                 case 102:
                 x = y * x
                 case 103:
@@ -560,131 +427,41 @@ class CalcViewController: UIViewController {
         {
             numberShowButton.setTitle("", forState: .Normal)
         }
-
-        power = 0
+        power = 1
         decimalPoint = 0
     }
     
     
     @IBAction func divideButtonAnimation(sender: MyCustomButton) {
-        operation1.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.operation1.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
-        
-
+       buttonAnimation(operation1)
     }
     
 
     @IBAction func multiplyButtonAnimation(sender: MyCustomButton) {
-        operation2.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.operation2.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
-        
-
+        buttonAnimation(operation2)
     }
     
     @IBAction func minusButtonAnimation(sender: MyCustomButton) {
-        operation3.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.operation3.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
-        
-
+        buttonAnimation(operation3)
     }
     
     @IBAction func plusButtonAmination(sender: MyCustomButton) {
-        operation4.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.operation4.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
-        
-
+        buttonAnimation(operation4)
     }
     
     @IBAction func equalButtonAnimation(sender: MyCustomButton) {
-        equalOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.equalOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
-
+        buttonAnimation(equalOutlet)
     }
 
     
     @IBAction func igrikToXAnimation(sender: MyCustomButton) {
-        igrikToXOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.igrikToXOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
-        
-}
+        buttonAnimation(igrikToXOutlet)
+    }
     
     @IBAction func percent(sender: UIButton) {
-        percentOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.percentOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
-
+        buttonAnimation(percentOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-
         x = x / 100
         let t = numberFormatter.stringFromNumber(x)!
         switch t
@@ -694,23 +471,10 @@ class CalcViewController: UIViewController {
         default:
             resultLabel.text = " " + t
         }
-
     }
  
     @IBAction func decimal(sender: UIButton) {
-        decimalOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.decimalOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
-
+        buttonAnimation(decimalOutlet)
         if decimalPoint == 0
         {
             decimalPoint = 1
@@ -720,20 +484,26 @@ class CalcViewController: UIViewController {
     
     @IBOutlet weak var moreChanged: UIButton!
     
+    func buttonAnimation(button: UIButton)
+    {
+       button.transform = CGAffineTransformMakeScale(0.6, 0.6)
+        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0), options:
+            UIViewAnimationOptions.AllowUserInteraction, animations:
+            {
+                button.transform = CGAffineTransformIdentity
+            },
+            completion: { Void in()  })
+    }
+    
+    
     @IBAction func moreButton(sender: UIButton) {
         moreView.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.moreView.transform = CGAffineTransformIdentity
+        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0),
+            options: UIViewAnimationOptions.AllowUserInteraction, animations:
+            {
+                self.moreView.transform = CGAffineTransformIdentity
             },
-                                   completion: { Void in()  }
-        )
-        
+        completion: { Void in()  })
               if hideIndicator == 0
         {
             hideIndicator = 1
@@ -754,23 +524,10 @@ class CalcViewController: UIViewController {
             self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, 215.0  )
             self.numberShowButton.transform = CGAffineTransformTranslate( self.numberShowButton.transform, 0.0, 215.0  )
         }
-
     }
         
     @IBAction func clearAll(sender: UIButton) {
-        clearOutlet.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        
-        UIView.animateWithDuration(2.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: CGFloat(0.20),
-                                   initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction,
-                                   animations: {
-                                    self.clearOutlet.transform = CGAffineTransformIdentity
-            },
-                                   completion: { Void in()  }
-        )
-
+        buttonAnimation(clearOutlet)
         x = 0
         y = 0
         operationActive = 0
