@@ -56,6 +56,14 @@ class CalcViewController: UIViewController {
     // view outlets
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var moreView: UIView!
+    @IBOutlet weak var formulaView: UIView!
+    
+    //function buttons Outlets
+    
+    @IBOutlet weak var calc1Outlet: MyCustomButton!
+    @IBOutlet weak var calc2Outlet: MyCustomButton!
+    @IBOutlet weak var calc3Outlet: MyCustomButton!
+    
     
     private var operationActive = 0
     private var enterFlag = 1
@@ -66,6 +74,7 @@ class CalcViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        formulaView.hidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -498,17 +507,30 @@ class CalcViewController: UIViewController {
     
     @IBAction func moreButton(sender: UIButton) {
         moreView.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0),
-            options: UIViewAnimationOptions.AllowUserInteraction, animations:
+        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0), options:
+            UIViewAnimationOptions.AllowUserInteraction, animations:
             {
                 self.moreView.transform = CGAffineTransformIdentity
             },
         completion: { Void in()  })
-              if hideIndicator == 0
+        
+        formulaView.transform = CGAffineTransformMakeScale(0.6, 0.6)
+        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0),
+                                   options: UIViewAnimationOptions.AllowUserInteraction, animations:
+            {
+                self.formulaView.transform = CGAffineTransformIdentity
+            },
+        completion: { Void in()  })
+        
+        if hideIndicator == 0
         {
             hideIndicator = 1
             moreChanged.setTitle("More", forState: .Normal) //uncomment this
             moreView.hidden = true
+            formulaView.hidden = false
+            buttonAnimation(calc1Outlet)
+            buttonAnimation(calc2Outlet)
+            buttonAnimation(calc3Outlet)
             self.moreChanged.transform = CGAffineTransformTranslate( self.moreChanged.transform, 0.0, -215.0  )
             self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, -215.0  )
             self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, -215.0  )
@@ -519,6 +541,7 @@ class CalcViewController: UIViewController {
             hideIndicator = 0
             moreChanged.setTitle("Hide", forState: .Normal) // uncomment this
             moreView.hidden = false
+            formulaView.hidden = true
             self.moreChanged.transform = CGAffineTransformTranslate( self.moreChanged.transform, 0.0, 215.0  )
             self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, 215.0  )
             self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, 215.0  )
@@ -526,6 +549,21 @@ class CalcViewController: UIViewController {
         }
     }
         
+    @IBAction func Calc1Animation(sender: MyCustomButton) {
+        buttonAnimation(calc1Outlet)
+    }
+    
+    
+    @IBAction func calc2Animation(sender: MyCustomButton) {
+        buttonAnimation(calc2Outlet)
+    }
+    
+    
+    @IBAction func calc3Animation(sender: MyCustomButton) {
+        buttonAnimation(calc3Outlet)
+    }
+    
+    
     @IBAction func clearAll(sender: UIButton) {
         buttonAnimation(clearOutlet)
         x = 0
@@ -539,3 +577,5 @@ class CalcViewController: UIViewController {
         numberShowButton.setTitle("", forState: .Normal)
     }
 }
+
+
