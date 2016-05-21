@@ -513,13 +513,13 @@ class CalcViewController: UIViewController {
     
     
     @IBAction func clearAll(sender: UIButton) {
-        if segmentCtrl.selectedSegmentIndex == 0 && resultLabel.text != "0"
+        /*  if segmentCtrl.selectedSegmentIndex == 0 && resultLabel.text != "0"
         {
         resultLabel.animation = "flipX"
         resultLabel.curve = "easeInOut"
         resultLabel.duration = 0.0
         resultLabel.animate()
-        }
+        }*/
         buttonAnimation(clearOutlet)
         resultLabel.font = UIFont(name: (resultLabel.font?.fontName)!, size: 50)
         x = 0
@@ -539,7 +539,7 @@ class CalcViewController: UIViewController {
             moreView.hidden = false
             formulaView.hidden = true
             self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, 190.0  )
-            self.numericButton.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, 190.0  )
+            self.numericButton.transform = CGAffineTransformTranslate( self.numericButton.transform, 0.0, 190.0  )
             self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, 190.0  )
             moreView.animation = "slideDown"
             moreView.curve = "easeIn"
@@ -581,7 +581,7 @@ class CalcViewController: UIViewController {
             buttonAnimation(calc3Outlet)
             self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, -190.0  )
             self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, -190.0  )
-            self.numericButton.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, -190.0  )
+            self.numericButton.transform = CGAffineTransformTranslate( self.numericButton.transform, 0.0, -190.0  )
 
             
             formulaView.animation = "slideUp"
