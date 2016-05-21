@@ -513,13 +513,13 @@ class CalcViewController: UIViewController {
     
     
     @IBAction func clearAll(sender: UIButton) {
-        /*  if segmentCtrl.selectedSegmentIndex == 0 && resultLabel.text != "0"
+        if segmentCtrl.selectedSegmentIndex == 0 && resultLabel.text != "0"
         {
         resultLabel.animation = "flipX"
         resultLabel.curve = "easeInOut"
         resultLabel.duration = 0.0
         resultLabel.animate()
-        }*/
+        }
         buttonAnimation(clearOutlet)
         resultLabel.font = UIFont(name: (resultLabel.font?.fontName)!, size: 50)
         x = 0
