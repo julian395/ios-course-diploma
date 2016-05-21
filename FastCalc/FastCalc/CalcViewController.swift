@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Spring
 
 class CalcViewController: UIViewController {
 
@@ -14,7 +15,7 @@ class CalcViewController: UIViewController {
     var y : Double = 0.0
     var hideIndicator = 0
     
-    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var resultLabel: SpringLabel!
     
     //digital outlets
     @IBOutlet weak var digit1: MyCustomButton!
@@ -54,9 +55,14 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var igrikToXOutlet: MyCustomButton!
     
     // view outlets
-    @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var moreView: UIView!
-    @IBOutlet weak var formulaView: UIView!
+    @IBOutlet weak var mainView: SpringView!
+    @IBOutlet weak var moreView: SpringView!
+    @IBOutlet weak var formulaView: SpringView!
+    
+    
+    @IBOutlet weak var numericButton: UIButton!
+    
+    @IBOutlet weak var segmentCtrl: UISegmentedControl!
     
     //function buttons Outlets
     
@@ -82,23 +88,6 @@ class CalcViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func showNumber(sender: UIButton) {
-       buttonAnimation(numberShowButton)
-        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        numberFormatter.locale = NSLocale.currentLocale()
-        switch String(x)
-        {
-        case let z where z.hasSuffix(".0"):
-            let alertView = UIAlertView(title: "Full number", message: "this is your number:  \(Int(x))", delegate: self, cancelButtonTitle: "OK")
-            alertView.show()
-        default:
-            let alertView = UIAlertView(title: "Full number", message: "this is your number:  \(x)", delegate: self, cancelButtonTitle: "OK")
-            alertView.show()
-        }
-    }
-    
-    @IBOutlet weak var numberShowButton: UIButton!
 
     @IBAction func digitals(sender: AnyObject) {
         switch sender.tag
@@ -189,9 +178,11 @@ class CalcViewController: UIViewController {
                 resultLabel.text = " " + t
             }
         }
-        if resultLabel.text?.characters.count > 15
+        if resultLabel.text?.characters.count > 13 && resultLabel.text?.characters.count < 25
         {
-            numberShowButton.setTitle("full number", forState: .Normal)
+            var temp = resultLabel.text?.characters.count
+            var result = CGFloat(100-(42 + Int(temp!)))
+            resultLabel.font = UIFont(name: (resultLabel.font?.fontName)!, size: result)
         }
     }
     
@@ -428,13 +419,13 @@ class CalcViewController: UIViewController {
         default:
             resultLabel.text = " " + t
         }
-        if resultLabel.text?.characters.count > 15
+        if resultLabel.text?.characters.count > 10
         {
-            numberShowButton.setTitle("full number", forState: .Normal)
+            resultLabel.font.fontWithSize(45)
         }
         else
         {
-            numberShowButton.setTitle("", forState: .Normal)
+           resultLabel.font.fontWithSize(60)
         }
         power = 1
         decimalPoint = 0
@@ -505,50 +496,7 @@ class CalcViewController: UIViewController {
     }
     
     
-    @IBAction func moreButton(sender: UIButton) {
-        moreView.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0), options:
-            UIViewAnimationOptions.AllowUserInteraction, animations:
-            {
-                self.moreView.transform = CGAffineTransformIdentity
-            },
-        completion: { Void in()  })
-        
-        formulaView.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0),
-                                   options: UIViewAnimationOptions.AllowUserInteraction, animations:
-            {
-                self.formulaView.transform = CGAffineTransformIdentity
-            },
-        completion: { Void in()  })
-        
-        if hideIndicator == 0
-        {
-            hideIndicator = 1
-            moreChanged.setTitle("More", forState: .Normal) //uncomment this
-            moreView.hidden = true
-            formulaView.hidden = false
-            buttonAnimation(calc1Outlet)
-            buttonAnimation(calc2Outlet)
-            buttonAnimation(calc3Outlet)
-            self.moreChanged.transform = CGAffineTransformTranslate( self.moreChanged.transform, 0.0, -215.0  )
-            self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, -215.0  )
-            self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, -215.0  )
-            self.numberShowButton.transform = CGAffineTransformTranslate( self.numberShowButton.transform, 0.0, -215.0  )
-        }
-        else if hideIndicator == 1
-        {
-            hideIndicator = 0
-            moreChanged.setTitle("Hide", forState: .Normal) // uncomment this
-            moreView.hidden = false
-            formulaView.hidden = true
-            self.moreChanged.transform = CGAffineTransformTranslate( self.moreChanged.transform, 0.0, 215.0  )
-            self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, 215.0  )
-            self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, 215.0  )
-            self.numberShowButton.transform = CGAffineTransformTranslate( self.numberShowButton.transform, 0.0, 215.0  )
-        }
-    }
-        
+    
     @IBAction func Calc1Animation(sender: MyCustomButton) {
         buttonAnimation(calc1Outlet)
     }
@@ -565,7 +513,15 @@ class CalcViewController: UIViewController {
     
     
     @IBAction func clearAll(sender: UIButton) {
+        if segmentCtrl.selectedSegmentIndex == 0 && resultLabel.text != "0"
+        {
+        resultLabel.animation = "flipX"
+        resultLabel.curve = "easeInOut"
+        resultLabel.duration = 0.0
+        resultLabel.animate()
+        }
         buttonAnimation(clearOutlet)
+        resultLabel.font = UIFont(name: (resultLabel.font?.fontName)!, size: 50)
         x = 0
         y = 0
         operationActive = 0
@@ -573,9 +529,93 @@ class CalcViewController: UIViewController {
         igrikFlag = 1
         decimalPoint = 0
         power = 1
-        resultLabel.text = " " + "0"
-        numberShowButton.setTitle("", forState: .Normal)
+        resultLabel.text = "0"
+        
     }
+    
+    @IBAction func segmentChange(sender: UISegmentedControl) {
+        if segmentCtrl.selectedSegmentIndex == 0
+        {
+            moreView.hidden = false
+            formulaView.hidden = true
+            self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, 190.0  )
+            self.numericButton.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, 190.0  )
+            self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, 190.0  )
+            moreView.animation = "slideDown"
+            moreView.curve = "easeIn"
+            moreView.duration = 2.6
+            moreView.delay = 0.0
+            moreView.animate()
+            
+            resultLabel.animation = "slideDown"
+            resultLabel.curve = "easeIn"
+            resultLabel.duration = 2.6
+            resultLabel.delay = 0.0
+            resultLabel.animate()
+            
+            mainView.animation = "slideDown"
+            mainView.curve = "easeIn"
+            mainView.duration = 2.6
+            mainView.delay = 0.0
+            mainView.animate()
+            
+        }
+        else
+        {
+            resultLabel.animation = "slideUp"
+            resultLabel.curve = "easeIn"
+            resultLabel.duration = 2.6
+            resultLabel.delay = 0.0
+            resultLabel.animate()
+            
+            mainView.animation = "slideUp"
+            mainView.curve = "easeIn"
+            mainView.duration = 2.6
+            mainView.delay = 0.0
+            mainView.animate()
+
+            moreView.hidden = true
+            formulaView.hidden = false
+            buttonAnimation(calc1Outlet)
+            buttonAnimation(calc2Outlet)
+            buttonAnimation(calc3Outlet)
+            self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, -190.0  )
+            self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, -190.0  )
+            self.numericButton.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, -190.0  )
+
+            
+            formulaView.animation = "slideUp"
+            formulaView.curve = "easeIn"
+            formulaView.duration = 2.6
+            formulaView.delay = 0.0
+            formulaView.animate()
+         
+            
+          /*  calc1Outlet.animation = "zoomIn"
+            calc1Outlet.curve = "easeOutBack"
+            calc1Outlet.force = 1.8
+            calc1Outlet.duration = 2.0
+            calc1Outlet.delay = 1.8
+            calc1Outlet.animate()*/
+        }
+    }
+    
+    
+    
+    @IBAction func showNumber(sender: UIButton)
+    {
+        if resultLabel.text?.characters.count > 19
+        {
+            let ShowNumberAlert = UIAlertView(title: "Your full number", message: "\(Double(x))", delegate: self, cancelButtonTitle: "Close")
+            ShowNumberAlert.show()
+        }
+        else
+        {
+            numericButton.hidden = false
+        }
+        
+    }
+    
 }
 
 
