@@ -81,6 +81,7 @@ class CalcViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         formulaView.hidden = true
+        resultLabel.text = "0"
         // Do any additional setup after loading the view.
     }
 
