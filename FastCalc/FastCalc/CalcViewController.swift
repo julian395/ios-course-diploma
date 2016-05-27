@@ -13,64 +13,90 @@ class CalcViewController: UIViewController {
 
     var x : Double = 0.0
     var y : Double = 0.0
-    var hideIndicator = 0
     
     @IBOutlet weak var resultLabel: SpringLabel!
+    @IBOutlet weak var resultLabel2: SpringLabel!
+    @IBOutlet weak var operationLabel: UILabel!
     
-    //digital outlets
-    @IBOutlet weak var digit1: MyCustomButton!
-    @IBOutlet weak var digit2: MyCustomButton!
-    @IBOutlet weak var digit3: MyCustomButton!
-    @IBOutlet weak var digit4: MyCustomButton!
-    @IBOutlet weak var digit5: MyCustomButton!
-    @IBOutlet weak var digit6: MyCustomButton!
-    @IBOutlet weak var digit7: MyCustomButton!
-    @IBOutlet weak var digit8: MyCustomButton!
-    @IBOutlet weak var digit9: MyCustomButton!
-    @IBOutlet weak var digit0: MyCustomButton!
+    
+    //digital outlets for mainView
+    @IBOutlet weak var digit1: SpringButton!
+    @IBOutlet weak var digit2: SpringButton!
+    @IBOutlet weak var digit3: SpringButton!
+    @IBOutlet weak var digit4: SpringButton!
+    @IBOutlet weak var digit5: SpringButton!
+    @IBOutlet weak var digit6: SpringButton!
+    @IBOutlet weak var digit7: SpringButton!
+    @IBOutlet weak var digit8: SpringButton!
+    @IBOutlet weak var digit9: SpringButton!
+    @IBOutlet weak var digit0: SpringButton!
+    
+    //digital outlets for mainView2
+    
+    @IBOutlet weak var digit00: SpringButton!
+    @IBOutlet weak var digit01: SpringButton!
+    @IBOutlet weak var digit02: SpringButton!
+    @IBOutlet weak var digit03: SpringButton!
+    @IBOutlet weak var digit04: SpringButton!
+    @IBOutlet weak var digit05: SpringButton!
+    @IBOutlet weak var digit06: SpringButton!
+    @IBOutlet weak var digit07: SpringButton!
+    @IBOutlet weak var digit08: SpringButton!
+    @IBOutlet weak var digit09: SpringButton!
     
     //Outlets for func button
-    @IBOutlet weak var xCubeOutlet: MyCustomButton!
-    @IBOutlet weak var logarifmOutlet: MyCustomButton!
-    @IBOutlet weak var eilerToXOutlet: MyCustomButton!
-    @IBOutlet weak var OneToXOutlet: MyCustomButton!
-    @IBOutlet weak var sqrtXOutlet: MyCustomButton!
-    @IBOutlet weak var xSquareOutlet: MyCustomButton!
-    @IBOutlet weak var eilerOutlet: MyCustomButton!
-    @IBOutlet weak var sinusOutlet: MyCustomButton!
-    @IBOutlet weak var cosinusOutlet: MyCustomButton!
-    @IBOutlet weak var tangensOutlet: MyCustomButton!
-    @IBOutlet weak var piOutlet: MyCustomButton!
+    @IBOutlet weak var xCubeOutlet: SpringButton!
+    @IBOutlet weak var logarifmOutlet: SpringButton!
+    @IBOutlet weak var eilerToXOutlet: SpringButton!
+    @IBOutlet weak var OneToXOutlet: SpringButton!
+    @IBOutlet weak var sqrtXOutlet: SpringButton!
+    @IBOutlet weak var xSquareOutlet: SpringButton!
+    @IBOutlet weak var eilerOutlet: SpringButton!
+    @IBOutlet weak var sinusOutlet: SpringButton!
+    @IBOutlet weak var cosinusOutlet: SpringButton!
+    @IBOutlet weak var tangensOutlet: SpringButton!
+    @IBOutlet weak var piOutlet: SpringButton!
     
     //Operations outlets
-    @IBOutlet weak var clearOutlet: MyCustomButton!
-    @IBOutlet weak var inverseOutlet: MyCustomButton!
-    @IBOutlet weak var percentOutlet: MyCustomButton!
-    @IBOutlet weak var operation1: MyCustomButton!
-    @IBOutlet weak var operation2: MyCustomButton!
-    @IBOutlet weak var operation3: MyCustomButton!
-    @IBOutlet weak var operation4: MyCustomButton!
-    @IBOutlet weak var equalOutlet: MyCustomButton!
-    @IBOutlet weak var decimalOutlet: MyCustomButton!
-    @IBOutlet weak var igrikToXOutlet: MyCustomButton!
+    @IBOutlet weak var clearOutlet: SpringButton!
+    @IBOutlet weak var inverseOutlet: SpringButton!
+    @IBOutlet weak var percentOutlet: SpringButton!
+    @IBOutlet weak var operation1: SpringButton!
+    @IBOutlet weak var operation2: SpringButton!
+    @IBOutlet weak var operation3: SpringButton!
+    @IBOutlet weak var operation4: SpringButton!
+    
+    //Operations outlets vor mainView2
+    
+    @IBOutlet weak var clearOutletV2: SpringButton!
+    @IBOutlet weak var inverseOutletV2: SpringButton!
+    @IBOutlet weak var percentOutletV2: SpringButton!
+    @IBOutlet weak var oper1OutletV2: SpringButton!
+    @IBOutlet weak var oper2OutletV2: SpringButton!
+    @IBOutlet weak var oper3OutletV2: SpringButton!
+    @IBOutlet weak var oper4OutletV2: SpringButton!
+    @IBOutlet weak var equalOutletV2: SpringButton!
+    @IBOutlet weak var decimalOutletV2: SpringButton!
+
+    
+    @IBOutlet weak var equalOutlet: SpringButton!
+    @IBOutlet weak var decimalOutlet: SpringButton!
+    @IBOutlet weak var igrikToXOutlet: SpringButton!
     
     // view outlets
     @IBOutlet weak var mainView: SpringView!
     @IBOutlet weak var moreView: SpringView!
-    @IBOutlet weak var formulaView: SpringView!
+    @IBOutlet weak var mainView2: SpringView!
+    
     
     
     @IBOutlet weak var numericButton: UIButton!
     
-    @IBOutlet weak var segmentCtrl: UISegmentedControl!
     
+    @IBOutlet weak var btnChange: SpringButton!
     //function buttons Outlets
     
-    @IBOutlet weak var calc1Outlet: MyCustomButton!
-    @IBOutlet weak var calc2Outlet: MyCustomButton!
-    @IBOutlet weak var calc3Outlet: MyCustomButton!
-    
-    
+
     private var operationActive = 0
     private var enterFlag = 1
     private var igrikFlag = 1
@@ -80,72 +106,175 @@ class CalcViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        formulaView.hidden = true
         resultLabel.text = "0"
-        // Do any additional setup after loading the view.
+        moreView.hidden = true
+        mainView.hidden = true
+        resultLabel.hidden = true
+        //buttonBorder for v1
+        buttonBorder(digit1)
+        buttonBorder(digit2)
+        buttonBorder(digit3)
+        buttonBorder(digit4)
+        buttonBorder(digit5)
+        buttonBorder(digit6)
+        buttonBorder(digit7)
+        buttonBorder(digit8)
+        buttonBorder(digit9)
+        buttonBorder(digit0)
+        buttonBorder(decimalOutlet)
+        buttonBorder(clearOutlet)
+        buttonBorder(operation1)
+        buttonBorder(operation2)
+        buttonBorder(operation3)
+        buttonBorder(operation4)
+        buttonBorder(percentOutlet)
+        buttonBorder(inverseOutlet)
+        buttonBorder(eilerToXOutlet)
+        buttonBorder(xCubeOutlet)
+        buttonBorder(logarifmOutlet)
+        buttonBorder(OneToXOutlet)
+        buttonBorder(sqrtXOutlet)
+        buttonBorder(xSquareOutlet)
+        buttonBorder(eilerOutlet)
+        buttonBorder(sinusOutlet)
+        buttonBorder(cosinusOutlet)
+        buttonBorder(tangensOutlet)
+        buttonBorder(piOutlet)
+        buttonBorder(igrikToXOutlet)
+        
+        //buttonBorder for v2
+        buttonBorder(digit01)
+        buttonBorder(digit02)
+        buttonBorder(digit03)
+        buttonBorder(digit04)
+        buttonBorder(digit05)
+        buttonBorder(digit06)
+        buttonBorder(digit07)
+        buttonBorder(digit08)
+        buttonBorder(digit09)
+        buttonBorder(digit00)
+        buttonBorder(decimalOutletV2)
+        buttonBorder(clearOutletV2)
+        buttonBorder(oper1OutletV2)
+        buttonBorder(oper2OutletV2)
+        buttonBorder(oper3OutletV2)
+        buttonBorder(oper4OutletV2)
+        buttonBorder(percentOutletV2)
+        buttonBorder(inverseOutletV2)
+        buttonBorder(equalOutletV2)
+        
+        btnChange.setImage(UIImage(named:"trigonometry-1"), forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    }
+    
+    func buttonBorder(button : UIButton)
+    {
+        button.layer.cornerRadius = 0;
+        button.layer.borderWidth = 1;
+    }
+    
+    
+    @IBAction func digitalsV2(sender: AnyObject) {
+        switch sender.tag
+        {
+        case 0:
+            buttonAnimation(digit00)
+        case 1:
+            buttonAnimation(digit01)
+        case 2:
+            buttonAnimation(digit02)
+        case 3:
+            buttonAnimation(digit03)
+        case 4:
+            buttonAnimation(digit04)
+        case 5:
+            buttonAnimation(digit05)
+        case 6:
+            buttonAnimation(digit06)
+        case 7:
+            buttonAnimation(digit07)
+        case 8:
+            buttonAnimation(digit08)
+        case 9:
+            buttonAnimation(digit09)
+        default:
+            buttonAnimation(digit00)
+        }
+
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+        if enterFlag == 1
+        {
+            x = 0
+            enterFlag = 0
+        }
+        if decimalPoint == 0
+        {
+            x = x * 10 + Double(sender.tag)
+            let t = numberFormatter.stringFromNumber(x)!
+            switch t
+            {
+            case let z where z.hasSuffix(".0"):
+                resultLabel2.text = " " + String(Int(t))
+            default:
+                resultLabel2.text = " " + t
+            }
+            
+        }
+        else
+        {
+            x = x + (Double(sender.tag)/pow(10, Double(power)))
+            power = power + 1
+            let t = numberFormatter.stringFromNumber(x)!
+            switch t
+            {
+            case let z where z.hasSuffix(".0"):
+                resultLabel2.text = " " + String(Int(t))
+            default:
+                resultLabel2.text = " " + t
+            }
+        }
+        if resultLabel2.text?.characters.count > 13 && resultLabel2.text?.characters.count < 25
+        {
+            var temp = resultLabel2.text?.characters.count
+            var result = CGFloat(100-(42 + Int(temp!)))
+            resultLabel2.font = UIFont(name: (resultLabel2.font?.fontName)!, size: result)
+        }
+       // operationLabel.text = operationLabel.text! + resultLabel2.text!
+
     }
 
     @IBAction func digitals(sender: AnyObject) {
         switch sender.tag
         {
         case 0:
-            digit0.transform = CGAffineTransformMakeScale(0.6, 0.6)
+            buttonAnimation(digit0)
         case 1:
-            digit1.transform = CGAffineTransformMakeScale(0.6, 0.6)
+            buttonAnimation(digit1)
         case 2:
-            digit2.transform = CGAffineTransformMakeScale(0.6, 0.6)
+           buttonAnimation(digit2)
         case 3:
-            digit3.transform = CGAffineTransformMakeScale(0.6, 0.6)
+            buttonAnimation(digit3)
         case 4:
-            digit4.transform = CGAffineTransformMakeScale(0.6, 0.6)
+            buttonAnimation(digit4)
         case 5:
-            digit5.transform = CGAffineTransformMakeScale(0.6, 0.6)
+            buttonAnimation(digit5)
         case 6:
-            digit6.transform = CGAffineTransformMakeScale(0.6, 0.6)
+            buttonAnimation(digit6)
         case 7:
-            digit7.transform = CGAffineTransformMakeScale(0.6, 0.6)
+           buttonAnimation(digit7)
         case 8:
-            digit8.transform = CGAffineTransformMakeScale(0.6, 0.6)
+            buttonAnimation(digit8)
         case 9:
-            digit9.transform = CGAffineTransformMakeScale(0.6, 0.6)
+            buttonAnimation(digit9)
         default:
-            digit0.transform = CGAffineTransformMakeScale(0.6, 0.6)
+            buttonAnimation(digit0)
         }
-        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0), options: UIViewAnimationOptions.AllowUserInteraction, animations:
-            {
-                switch sender.tag
-                {
-                case 0:
-                self.digit0.transform = CGAffineTransformIdentity
-                case 1:
-                self.digit1.transform = CGAffineTransformIdentity
-                case 2:
-                self.digit2.transform = CGAffineTransformIdentity
-                case 3:
-                self.digit3.transform = CGAffineTransformIdentity
-                case 4:
-                self.digit4.transform = CGAffineTransformIdentity
-                case 5:
-                self.digit5.transform = CGAffineTransformIdentity
-                case 6:
-                self.digit6.transform = CGAffineTransformIdentity
-                case 7:
-                self.digit7.transform = CGAffineTransformIdentity
-                case 8:
-                self.digit8.transform = CGAffineTransformIdentity
-                case 9:
-                self.digit9.transform = CGAffineTransformIdentity
-                default:
-                self.digit0.transform = CGAffineTransformIdentity
-                }
-            },
-        completion: { Void in()  }
-        )
+        
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
         if enterFlag == 1
@@ -356,6 +485,24 @@ class CalcViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func inverseV2(sender: UIButton) {
+        buttonAnimation(inverseOutletV2)
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+        x = -x
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
+        {
+        case let z where z.hasSuffix(".0"):
+            resultLabel2.text = " " + t
+        default:
+            resultLabel2.text = " " + t
+        }
+
+    }
+    
+    
     @IBAction func inverse(sender: UIButton) {
         buttonAnimation(inverseOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -369,6 +516,115 @@ class CalcViewController: UIViewController {
         default:
             resultLabel.text = " " + t
         }
+    }
+    
+    
+    @IBAction func operationsV2(sender: UIButton) {
+        operationLabel.text = ""
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+        if enterFlag != 1 && igrikFlag == 1
+        {
+            switch operationActive
+            {
+            case 1001:
+                if x != 0
+                {
+                    x = y / x
+                    let t = numberFormatter.stringFromNumber(x)!
+                    let p = numberFormatter.stringFromNumber(y)!
+                    switch t
+                    {
+                    case let z where z.hasSuffix(".0"):
+                        operationLabel.text = String(Int(p)) + " / " + resultLabel2.text! + " = " + String(Int(t))
+                    default:
+                        operationLabel.text = p + " / " + resultLabel2.text! + " = " + t
+                    }
+                }
+                else
+                {
+                    let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to divide by 0", delegate: self, cancelButtonTitle: "Close")
+                    ZeroAlertView.show()
+                }
+            case 1002:
+                x = y * x
+                let t = numberFormatter.stringFromNumber(x)!
+                let p = numberFormatter.stringFromNumber(y)!
+                switch t
+                {
+                case let z where z.hasSuffix(".0"):
+                    operationLabel.text = String(Int(p)) + " * " + resultLabel2.text! + " = " + String(Int(t))
+                default:
+                    operationLabel.text = p + " * " + resultLabel2.text! + " = " + t
+                }
+
+            case 1003:
+                x = y - x
+                let t = numberFormatter.stringFromNumber(x)!
+                let p = numberFormatter.stringFromNumber(y)!
+                switch t
+                {
+                case let z where z.hasSuffix(".0"):
+                    operationLabel.text = String(Int(p)) + " - " + resultLabel2.text! + " = " + String(Int(t))
+                default:
+                    operationLabel.text = p + " - " + resultLabel2.text! + " = " + t
+                }
+
+            case 1004:
+                x = y + x
+                let t = numberFormatter.stringFromNumber(x)!
+                let p = numberFormatter.stringFromNumber(y)!
+                switch t
+                {
+                case let z where z.hasSuffix(".0"):
+                    operationLabel.text = String(Int(p)) + " + " + resultLabel2.text! + " = " + String(Int(t))
+                default:
+                    operationLabel.text = p + " + " + resultLabel2.text! + " = " + t
+                }
+
+            default:
+                let t = numberFormatter.stringFromNumber(x)!
+                switch t
+                {
+                case let z where z.hasSuffix(".0"):
+                    resultLabel2.text = " " + String(Int(t))
+                default:
+                    resultLabel2.text = " " + t
+                }
+                
+            }
+        }
+        operationActive = sender.tag
+        y = x
+        igrikFlag = 1
+        enterFlag = 1
+        if sender.tag != 1005 && y != 0{
+            equalOutletV2.animation = "swing"
+            equalOutletV2.curve = "easeIn"
+            equalOutletV2.force = 3.5
+            equalOutletV2.duration = 1.5
+            equalOutletV2.delay = 1.5
+            equalOutletV2.animate()
+        }
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
+        {
+        case let z where z.hasSuffix(".0"):
+            resultLabel2.text = " " + String(Int(t))
+        default:
+            resultLabel2.text = " " + t
+        }
+        if resultLabel2.text?.characters.count > 10
+        {
+            resultLabel2.font.fontWithSize(45)
+        }
+        else
+        {
+            resultLabel2.font.fontWithSize(60)
+        }
+        power = 1
+        decimalPoint = 0
+
     }
     
     @IBAction func operations(sender: UIButton) {
@@ -412,6 +668,15 @@ class CalcViewController: UIViewController {
         y = x
         igrikFlag = 1
         enterFlag = 1
+        if sender.tag != 105 && y != 0
+        {
+        equalOutlet.animation = "swing"
+        equalOutlet.curve = "easeIn"
+        equalOutlet.force = 3.5
+        equalOutlet.duration = 1.5
+        equalOutlet.delay = 1.5
+        equalOutlet.animate()
+        }
         let t = numberFormatter.stringFromNumber(x)!
         switch t
         {
@@ -459,6 +724,27 @@ class CalcViewController: UIViewController {
         buttonAnimation(igrikToXOutlet)
     }
     
+    
+    @IBAction func percentV2(sender: UIButton) {
+        operationLabel.text = ""
+        buttonAnimation(percentOutletV2)
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+        operationLabel.text = numberFormatter.stringFromNumber(x)!
+        x = x / 100
+        let t = numberFormatter.stringFromNumber(x)!
+        switch t
+        {
+        case let z where z.hasSuffix(".0"):
+            resultLabel2.text = " " + t
+            operationLabel.text = operationLabel.text! + " % " + " = " + t
+        default:
+            resultLabel2.text = " " + t
+            operationLabel.text = operationLabel.text! + " % " + " = " + t
+        }
+
+    }
+    
     @IBAction func percent(sender: UIButton) {
         buttonAnimation(percentOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -468,9 +754,9 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
  
@@ -483,45 +769,79 @@ class CalcViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var moreChanged: UIButton!
     
-    func buttonAnimation(button: UIButton)
+    @IBAction func decimalV2(sender: UIButton) {
+        buttonAnimation(decimalOutletV2)
+        if decimalPoint == 0
+        {
+            decimalPoint = 1
+            resultLabel.text = resultLabel.text! + "."
+        }
+
+    }
+    
+    func buttonAnimation(button: SpringButton!)
     {
-       button.transform = CGAffineTransformMakeScale(0.6, 0.6)
-        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0), options:
-            UIViewAnimationOptions.AllowUserInteraction, animations:
+        button.animation = "fadeIn"
+        button.curve = "easeInCirc"
+        button.duration = 0.5
+        button.damping = 0.0
+        button.velocity = 0.0
+        button.animate()
+        
+    }
+    
+    
+
+    @IBAction func clealrAllV2(sender: UIButton) {
+        operationLabel.hidden = true
+        buttonAnimation(clearOutletV2)
+        if resultLabel2.text != "0" {
+        resultLabel2.animation = "flipX"
+        resultLabel2.curve = "easeInOut"
+        resultLabel2.force = 3.6
+        resultLabel2.duration = 0.5
+        resultLabel2.damping = 0.0
+        resultLabel2.velocity = 0.0
+        resultLabel2.animate()
+            let delay = 0.2 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue())
             {
-                button.transform = CGAffineTransformIdentity
-            },
-            completion: { Void in()  })
+                self.resultLabel2.text = "0"
+            }
+
+        }
+        resultLabel2.font = UIFont(name: (resultLabel2.font?.fontName)!, size: 50)
+        x = 0
+        y = 0
+        operationActive = 0
+        enterFlag = 1
+        igrikFlag = 1
+        decimalPoint = 0
+        power = 1
+        operationLabel.text = ""
+        operationLabel.hidden = false
     }
-    
-    
-    
-    @IBAction func Calc1Animation(sender: MyCustomButton) {
-        buttonAnimation(calc1Outlet)
-    }
-    
-    
-    @IBAction func calc2Animation(sender: MyCustomButton) {
-        buttonAnimation(calc2Outlet)
-    }
-    
-    
-    @IBAction func calc3Animation(sender: MyCustomButton) {
-        buttonAnimation(calc3Outlet)
-    }
-    
     
     @IBAction func clearAll(sender: UIButton) {
-        if segmentCtrl.selectedSegmentIndex == 0 && resultLabel.text != "0"
-        {
-        resultLabel.animation = "flipX"
-        resultLabel.curve = "easeInOut"
-        resultLabel.duration = 0.0
-        resultLabel.animate()
-        }
         buttonAnimation(clearOutlet)
+        if resultLabel.text != "0" {
+            resultLabel.animation = "flipX"
+            resultLabel.curve = "easeInOut"
+            resultLabel.force = 3.6
+            resultLabel.duration = 0.5
+            resultLabel.damping = 0.0
+            resultLabel.velocity = 0.0
+            resultLabel.animate()
+            let delay = 0.2 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue())
+            {
+                self.resultLabel.text = "0"
+            }
+            
+        }
         resultLabel.font = UIFont(name: (resultLabel.font?.fontName)!, size: 50)
         x = 0
         y = 0
@@ -530,78 +850,108 @@ class CalcViewController: UIViewController {
         igrikFlag = 1
         decimalPoint = 0
         power = 1
-        resultLabel.text = "0"
+    }
+    
+    @IBAction func changeCalc(sender: UIButton) {
+        if moreView.hidden == true
+        {
+            btnChange.animation = "flipY"
+            btnChange.curve = "easeInOut"
+            btnChange.force = 3.6
+            btnChange.duration = 0.5
+            btnChange.damping = 0.0
+            btnChange.velocity = 0.0
+            btnChange.animate()
+            
+            moreView.animation = "zoomIn"
+            moreView.curve = "easeInOut"
+            moreView.duration = 2.9
+            moreView.animate()
+            
+            
+            moreView.hidden = false
+            mainView.hidden = false
+            resultLabel.hidden = false
+            mainView2.hidden = true
+            resultLabel2.hidden = true
+            operationLabel.hidden = true
+            resultLabel.text = resultLabel2.text
+            let delay = 0.35 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue())
+            {
+                self.btnChange.setImage(UIImage(named: "math-2"), forState: .Normal)
+            }
+        }
+        else if moreView.hidden == false
+        {
+            btnChange.animation = "shake"
+            btnChange.curve = "easeInOut"
+            btnChange.force = 3.6
+            btnChange.duration = 0.5
+            btnChange.damping = 0.0
+            btnChange.velocity = 0.0
+            btnChange.animate()
+            
+            moreView.animation = "fadeOut"
+            moreView.curve = "easeInOut"
+            moreView.duration = 2.9
+            moreView.animate()
+            
+            /*moreView.hidden = true
+            mainView.hidden = true
+            resultLabel.hidden = true
+            mainView2.hidden = false
+            resultLabel2.hidden = false
+            operationLabel.hidden = false
+            resultLabel2.text = resultLabel.text*/
+            let delay = 0.3 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue())
+            {
+                self.btnChange.setImage(UIImage(named: "trigonometry-1"), forState: .Normal)
+            }
+            
+            let delay2 = 0.45 * Double(NSEC_PER_SEC)
+            let time2 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
+            dispatch_after(time2, dispatch_get_main_queue())
+            {
+            self.moreView.hidden = true
+            self.mainView.hidden = true
+            self.resultLabel.hidden = true
+            self.mainView2.hidden = false
+            self.resultLabel2.hidden = false
+            self.operationLabel.hidden = false
+            self.resultLabel2.text = self.resultLabel.text
+            }
+            
+        }
+        
+        
         
     }
     
-    @IBAction func segmentChange(sender: UISegmentedControl) {
-        if segmentCtrl.selectedSegmentIndex == 0
-        {
-            moreView.hidden = false
-            formulaView.hidden = true
-            self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, 190.0  )
-            self.numericButton.transform = CGAffineTransformTranslate( self.numericButton.transform, 0.0, 190.0  )
-            self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, 190.0  )
-            moreView.animation = "slideDown"
-            moreView.curve = "easeIn"
-            moreView.duration = 2.6
-            moreView.delay = 0.0
-            moreView.animate()
-            
-            resultLabel.animation = "slideDown"
-            resultLabel.curve = "easeIn"
-            resultLabel.duration = 2.6
-            resultLabel.delay = 0.0
-            resultLabel.animate()
-            
-            mainView.animation = "slideDown"
-            mainView.curve = "easeIn"
-            mainView.duration = 2.6
-            mainView.delay = 0.0
-            mainView.animate()
-            
-        }
-        else
-        {
-            resultLabel.animation = "slideUp"
-            resultLabel.curve = "easeIn"
-            resultLabel.duration = 2.6
-            resultLabel.delay = 0.0
-            resultLabel.animate()
-            
-            mainView.animation = "slideUp"
-            mainView.curve = "easeIn"
-            mainView.duration = 2.6
-            mainView.delay = 0.0
-            mainView.animate()
-
-            moreView.hidden = true
-            formulaView.hidden = false
-            buttonAnimation(calc1Outlet)
-            buttonAnimation(calc2Outlet)
-            buttonAnimation(calc3Outlet)
-            self.resultLabel.transform = CGAffineTransformTranslate( self.resultLabel.transform, 0.0, -190.0  )
-            self.mainView.transform = CGAffineTransformTranslate( self.mainView.transform, 0.0, -190.0  )
-            self.numericButton.transform = CGAffineTransformTranslate( self.numericButton.transform, 0.0, -190.0  )
-
-            
-            formulaView.animation = "slideUp"
-            formulaView.curve = "easeIn"
-            formulaView.duration = 2.6
-            formulaView.delay = 0.0
-            formulaView.animate()
-         
-            
-          /*  calc1Outlet.animation = "zoomIn"
-            calc1Outlet.curve = "easeOutBack"
-            calc1Outlet.force = 1.8
-            calc1Outlet.duration = 2.0
-            calc1Outlet.delay = 1.8
-            calc1Outlet.animate()*/
-        }
+    @IBAction func operation1004(sender: AnyObject) {
+        buttonAnimation(oper1OutletV2)
+    }
+    
+    @IBAction func operation1003(sender: AnyObject) {
+        buttonAnimation(oper2OutletV2)
+    }
+    
+    @IBAction func operation1002(sender: AnyObject) {
+        buttonAnimation(oper3OutletV2)
     }
     
     
+    @IBAction func operation1001(sender: AnyObject) {
+        buttonAnimation(oper4OutletV2)
+    }
+    
+    
+    @IBAction func equalOperation(sender: AnyObject) {
+        buttonAnimation(equalOutletV2)
+    }
     
     @IBAction func showNumber(sender: UIButton)
     {

@@ -68,4 +68,6 @@ public class SpringButton: UIButton, Springable {
     public func animateToNext(completion: () -> ()) {
         self.spring.animateToNext(completion)
     }
+  
+    
 }

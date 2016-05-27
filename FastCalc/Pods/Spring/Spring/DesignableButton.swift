@@ -42,6 +42,8 @@ import UIKit
         }
     }
     
+    
+    
     @IBInspectable public var shadowColor: UIColor = UIColor.clearColor() {
         didSet {
             layer.shadowColor = shadowColor.CGColor

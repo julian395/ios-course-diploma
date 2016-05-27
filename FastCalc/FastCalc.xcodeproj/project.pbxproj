@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		1752F6E0A3E4FF2A5B212845 /* Pods_FastCalcUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9639717B981CA004B911FC9C /* Pods_FastCalcUITests.framework */; };
 		49FF67A8B60ABF895CDE16E6 /* Pods_FastCalc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B1E7C2B8DB396F2640B281 /* Pods_FastCalc.framework */; };
-		7F2914B71CE48BB3009FC507 /* FirstCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2914B61CE48BB3009FC507 /* FirstCalculatorViewController.swift */; };
-		7F2914B91CE48DA7009FC507 /* SecondCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2914B81CE48DA7009FC507 /* SecondCalculatorViewController.swift */; };
-		7F2914BB1CE48DC0009FC507 /* ThirdCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2914BA1CE48DC0009FC507 /* ThirdCalculatorViewController.swift */; };
 		7FA35F1F1CD923A3006F7615 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA35F1E1CD923A3006F7615 /* AppDelegate.swift */; };
 		7FA35F241CD923A3006F7615 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA35F221CD923A3006F7615 /* Main.storyboard */; };
 		7FA35F261CD923A3006F7615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA35F251CD923A3006F7615 /* Assets.xcassets */; };
@@ -45,9 +42,6 @@
 		4188DE8169037B1C5159CBEB /* Pods-FastCalcUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCalcUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FastCalcUITests/Pods-FastCalcUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		54B237E2595ED462F56973A5 /* Pods_FastCalcTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastCalcTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C784F510FDF97515015A2C8 /* Pods-FastCalcUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCalcUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastCalcUITests/Pods-FastCalcUITests.release.xcconfig"; sourceTree = "<group>"; };
-		7F2914B61CE48BB3009FC507 /* FirstCalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCalculatorViewController.swift; sourceTree = "<group>"; };
-		7F2914B81CE48DA7009FC507 /* SecondCalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCalculatorViewController.swift; sourceTree = "<group>"; };
-		7F2914BA1CE48DC0009FC507 /* ThirdCalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdCalculatorViewController.swift; sourceTree = "<group>"; };
 		7FA35F1B1CD923A3006F7615 /* FastCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA35F1E1CD923A3006F7615 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA35F231CD923A3006F7615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,9 +123,6 @@
 				7FA35F271CD923A3006F7615 /* LaunchScreen.storyboard */,
 				7FA35F2A1CD923A3006F7615 /* Info.plist */,
 				7FA35F4E1CDF8853006F7615 /* MyCustomButton.swift */,
-				7F2914B61CE48BB3009FC507 /* FirstCalculatorViewController.swift */,
-				7F2914B81CE48DA7009FC507 /* SecondCalculatorViewController.swift */,
-				7F2914BA1CE48DC0009FC507 /* ThirdCalculatorViewController.swift */,
 			);
 			path = FastCalc;
 			sourceTree = "<group>";
@@ -440,10 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F2914BB1CE48DC0009FC507 /* ThirdCalculatorViewController.swift in Sources */,
-				7F2914B71CE48BB3009FC507 /* FirstCalculatorViewController.swift in Sources */,
 				7FA35F4F1CDF8853006F7615 /* MyCustomButton.swift in Sources */,
-				7F2914B91CE48DA7009FC507 /* SecondCalculatorViewController.swift in Sources */,
 				7FA35F4D1CD9DB78006F7615 /* CalcViewController.swift in Sources */,
 				7FA35F1F1CD923A3006F7615 /* AppDelegate.swift in Sources */,
 			);
