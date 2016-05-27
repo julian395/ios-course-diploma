@@ -775,7 +775,7 @@ class CalcViewController: UIViewController {
         if decimalPoint == 0
         {
             decimalPoint = 1
-            resultLabel.text = resultLabel.text! + "."
+            resultLabel2.text = resultLabel2.text! + "."
         }
 
     }
@@ -788,7 +788,6 @@ class CalcViewController: UIViewController {
         button.damping = 0.0
         button.velocity = 0.0
         button.animate()
-        
     }
     
     

@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="studio-calculator_318-63480.png" translatesAutoresizingMaskIntoConstraints="NO" id="uCd-hf-iDE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="studio-calculator_318-63480.png" translatesAutoresizingMaskIntoConstraints="NO" id="uCd-hf-iDE">
                                 <rect key="frame" x="122" y="242" width="130" height="128"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FastCalc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyz-oe-1Ad">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FastCalc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyz-oe-1Ad">
                                 <rect key="frame" x="88" y="148" width="198" height="118"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -28,6 +28,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uCd-hf-iDE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6VO-uk-IYR"/>
+                            <constraint firstItem="Yyz-oe-1Ad" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="V4R-qe-seI"/>
+                            <constraint firstItem="Yyz-oe-1Ad" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gMr-SP-xl1"/>
+                            <constraint firstItem="uCd-hf-iDE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iME-ay-Ks1"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
