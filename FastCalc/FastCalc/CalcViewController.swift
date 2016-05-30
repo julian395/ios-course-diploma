@@ -16,7 +16,7 @@ class CalcViewController: UIViewController {
     
     @IBOutlet weak var resultLabel: SpringLabel!
     @IBOutlet weak var resultLabel2: SpringLabel!
-    @IBOutlet weak var operationLabel: UILabel!
+    @IBOutlet weak var operationLabel: SpringLabel!
     
     
     //digital outlets for mainView
@@ -32,7 +32,6 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var digit0: SpringButton!
     
     //digital outlets for mainView2
-    
     @IBOutlet weak var digit00: SpringButton!
     @IBOutlet weak var digit01: SpringButton!
     @IBOutlet weak var digit02: SpringButton!
@@ -67,7 +66,6 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var operation4: SpringButton!
     
     //Operations outlets vor mainView2
-    
     @IBOutlet weak var clearOutletV2: SpringButton!
     @IBOutlet weak var inverseOutletV2: SpringButton!
     @IBOutlet weak var percentOutletV2: SpringButton!
@@ -77,8 +75,6 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var oper4OutletV2: SpringButton!
     @IBOutlet weak var equalOutletV2: SpringButton!
     @IBOutlet weak var decimalOutletV2: SpringButton!
-
-    
     @IBOutlet weak var equalOutlet: SpringButton!
     @IBOutlet weak var decimalOutlet: SpringButton!
     @IBOutlet weak var igrikToXOutlet: SpringButton!
@@ -91,12 +87,9 @@ class CalcViewController: UIViewController {
     
     
     @IBOutlet weak var numericButton: UIButton!
-    
-    
     @IBOutlet weak var btnChange: SpringButton!
-    //function buttons Outlets
     
-
+    //function buttons Outlets
     private var operationActive = 0
     private var enterFlag = 1
     private var igrikFlag = 1
@@ -162,13 +155,11 @@ class CalcViewController: UIViewController {
         buttonBorder(percentOutletV2)
         buttonBorder(inverseOutletV2)
         buttonBorder(equalOutletV2)
-        
         btnChange.setImage(UIImage(named:"trigonometry-1"), forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    
     }
     
     func buttonBorder(button : UIButton)
@@ -204,7 +195,6 @@ class CalcViewController: UIViewController {
         default:
             buttonAnimation(digit00)
         }
-
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
         if enterFlag == 1
@@ -223,7 +213,6 @@ class CalcViewController: UIViewController {
             default:
                 resultLabel2.text = " " + t
             }
-            
         }
         else
         {
@@ -244,8 +233,6 @@ class CalcViewController: UIViewController {
             var result = CGFloat(100-(42 + Int(temp!)))
             resultLabel2.font = UIFont(name: (resultLabel2.font?.fontName)!, size: result)
         }
-       // operationLabel.text = operationLabel.text! + resultLabel2.text!
-
     }
 
     @IBAction func digitals(sender: AnyObject) {
@@ -293,7 +280,6 @@ class CalcViewController: UIViewController {
             default:
             resultLabel.text = " " + t
             }
-       
         }
         else
         {
@@ -499,7 +485,6 @@ class CalcViewController: UIViewController {
         default:
             resultLabel2.text = " " + t
         }
-
     }
     
     
@@ -536,9 +521,9 @@ class CalcViewController: UIViewController {
                     switch t
                     {
                     case let z where z.hasSuffix(".0"):
-                        operationLabel.text = String(Int(p)) + " / " + resultLabel2.text! + " = " + String(Int(t))
+                        operationLabel.text = String(Int(p)) + " / " + resultLabel2.text! + " = " + String(Int(t)) + " "
                     default:
-                        operationLabel.text = p + " / " + resultLabel2.text! + " = " + t
+                        operationLabel.text = p + " / " + resultLabel2.text! + " = " + t + " "
                     }
                 }
                 else
@@ -553,9 +538,9 @@ class CalcViewController: UIViewController {
                 switch t
                 {
                 case let z where z.hasSuffix(".0"):
-                    operationLabel.text = String(Int(p)) + " * " + resultLabel2.text! + " = " + String(Int(t))
+                    operationLabel.text = String(Int(p)) + " * " + resultLabel2.text! + " = " + String(Int(t)) + " "
                 default:
-                    operationLabel.text = p + " * " + resultLabel2.text! + " = " + t
+                    operationLabel.text = p + " * " + resultLabel2.text! + " = " + t + " "
                 }
 
             case 1003:
@@ -565,9 +550,9 @@ class CalcViewController: UIViewController {
                 switch t
                 {
                 case let z where z.hasSuffix(".0"):
-                    operationLabel.text = String(Int(p)) + " - " + resultLabel2.text! + " = " + String(Int(t))
+                    operationLabel.text = String(Int(p)) + " - " + resultLabel2.text! + " = " + String(Int(t)) + " "
                 default:
-                    operationLabel.text = p + " - " + resultLabel2.text! + " = " + t
+                    operationLabel.text = p + " - " + resultLabel2.text! + " = " + t + " "
                 }
 
             case 1004:
@@ -577,9 +562,9 @@ class CalcViewController: UIViewController {
                 switch t
                 {
                 case let z where z.hasSuffix(".0"):
-                    operationLabel.text = String(Int(p)) + " + " + resultLabel2.text! + " = " + String(Int(t))
+                    operationLabel.text = String(Int(p)) + " + " + resultLabel2.text! + " = " + String(Int(t)) + " "
                 default:
-                    operationLabel.text = p + " + " + resultLabel2.text! + " = " + t
+                    operationLabel.text = p + " + " + resultLabel2.text! + " = " + t + " "
                 }
 
             default:
@@ -624,7 +609,6 @@ class CalcViewController: UIViewController {
         }
         power = 1
         decimalPoint = 0
-
     }
     
     @IBAction func operations(sender: UIButton) {
@@ -661,7 +645,6 @@ class CalcViewController: UIViewController {
                     default:
                         resultLabel.text = " " + t
                 }
-
             }
         }
         operationActive = sender.tag
@@ -702,7 +685,6 @@ class CalcViewController: UIViewController {
        buttonAnimation(operation1)
     }
     
-
     @IBAction func multiplyButtonAnimation(sender: MyCustomButton) {
         buttonAnimation(operation2)
     }
@@ -719,7 +701,6 @@ class CalcViewController: UIViewController {
         buttonAnimation(equalOutlet)
     }
 
-    
     @IBAction func igrikToXAnimation(sender: MyCustomButton) {
         buttonAnimation(igrikToXOutlet)
     }
@@ -742,7 +723,6 @@ class CalcViewController: UIViewController {
             resultLabel2.text = " " + t
             operationLabel.text = operationLabel.text! + " % " + " = " + t
         }
-
     }
     
     @IBAction func percent(sender: UIButton) {
@@ -777,7 +757,6 @@ class CalcViewController: UIViewController {
             decimalPoint = 1
             resultLabel2.text = resultLabel2.text! + "."
         }
-
     }
     
     func buttonAnimation(button: SpringButton!)
@@ -809,7 +788,6 @@ class CalcViewController: UIViewController {
             {
                 self.resultLabel2.text = "0"
             }
-
         }
         resultLabel2.font = UIFont(name: (resultLabel2.font?.fontName)!, size: 50)
         x = 0
@@ -839,7 +817,6 @@ class CalcViewController: UIViewController {
             {
                 self.resultLabel.text = "0"
             }
-            
         }
         resultLabel.font = UIFont(name: (resultLabel.font?.fontName)!, size: 50)
         x = 0
@@ -866,7 +843,6 @@ class CalcViewController: UIViewController {
             moreView.curve = "easeInOut"
             moreView.duration = 2.9
             moreView.animate()
-            
             
             moreView.hidden = false
             mainView.hidden = false
@@ -897,20 +873,12 @@ class CalcViewController: UIViewController {
             moreView.duration = 2.9
             moreView.animate()
             
-            /*moreView.hidden = true
-            mainView.hidden = true
-            resultLabel.hidden = true
-            mainView2.hidden = false
-            resultLabel2.hidden = false
-            operationLabel.hidden = false
-            resultLabel2.text = resultLabel.text*/
             let delay = 0.3 * Double(NSEC_PER_SEC)
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue())
             {
                 self.btnChange.setImage(UIImage(named: "trigonometry-1"), forState: .Normal)
             }
-            
             let delay2 = 0.45 * Double(NSEC_PER_SEC)
             let time2 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
             dispatch_after(time2, dispatch_get_main_queue())
@@ -923,11 +891,7 @@ class CalcViewController: UIViewController {
             self.operationLabel.hidden = false
             self.resultLabel2.text = self.resultLabel.text
             }
-            
         }
-        
-        
-        
     }
     
     @IBAction func operation1004(sender: AnyObject) {
@@ -963,9 +927,7 @@ class CalcViewController: UIViewController {
         {
             numericButton.hidden = false
         }
-        
     }
-    
 }
 
 
