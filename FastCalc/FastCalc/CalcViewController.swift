@@ -96,9 +96,30 @@ class CalcViewController: UIViewController {
     var decimalPoint = 0
     var power = 1
     var numberFormatter = NSNumberFormatter()
+    var numberLength = 0
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        if mainView.frame.width == 375
+        {
+            numberLength = 13
+        }
+        if mainView.frame.width == 320
+        {
+            numberLength = 11
+        }
+        if mainView.frame.width == 414
+        {
+           numberLength = 15
+        }
+        if mainView.frame.width > 414
+        {
+            numberLength = 19
+        }
+        if mainView.frame.width < 320
+        {
+            numberLength = 11
+        }
         resultLabel.text = "0"
         moreView.hidden = true
         mainView.hidden = true
@@ -207,12 +228,12 @@ class CalcViewController: UIViewController {
             x = x * 10 + Double(sender.tag)
             let t = numberFormatter.stringFromNumber(x)!
             switch t
-            {
-            case let z where z.hasSuffix(".0"):
-                resultLabel2.text = " " + String(Int(t))
-            default:
-                resultLabel2.text = " " + t
-            }
+                {
+                case let z where z.hasSuffix(".0"):
+                    resultLabel2.text = String(Int(t))
+                default:
+                    resultLabel2.text = t
+                }
         }
         else
         {
@@ -222,12 +243,13 @@ class CalcViewController: UIViewController {
             switch t
             {
             case let z where z.hasSuffix(".0"):
-                resultLabel2.text = " " + String(Int(t))
+                resultLabel2.text = String(Int(t))
             default:
-                resultLabel2.text = " " + t
+                resultLabel2.text = t
             }
         }
-        if resultLabel2.text?.characters.count > 13 && resultLabel2.text?.characters.count < 25
+        
+        if resultLabel2.text?.characters.count > numberLength && resultLabel2.text?.characters.count < 25
         {
             var temp = resultLabel2.text?.characters.count
             var result = CGFloat(100-(42 + Int(temp!)))
@@ -294,12 +316,13 @@ class CalcViewController: UIViewController {
                 resultLabel.text = " " + t
             }
         }
-        if resultLabel.text?.characters.count > 13 && resultLabel.text?.characters.count < 25
+        if resultLabel.text?.characters.count > numberLength && resultLabel.text?.characters.count < 27
         {
             var temp = resultLabel.text?.characters.count
             var result = CGFloat(100-(42 + Int(temp!)))
             resultLabel.font = UIFont(name: (resultLabel.font?.fontName)!, size: result)
         }
+        
     }
     
     @IBAction func numberEiler(sender: UIButton) {
@@ -368,7 +391,15 @@ class CalcViewController: UIViewController {
         buttonAnimation(OneToXOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-        x = 1/x
+        if x != 0
+        {
+            x = 1/x
+        }
+        else
+        {
+            let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to divide by 0", delegate: self, cancelButtonTitle: "Close")
+            ZeroAlertView.show()
+        }
         let t = numberFormatter.stringFromNumber(x)!
         switch t
         {
@@ -414,7 +445,15 @@ class CalcViewController: UIViewController {
         buttonAnimation(logarifmOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
-        x = log(x)
+        if x != 0
+        {
+            x = log(x)
+        }
+        else
+        {
+            let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to find ln 0", delegate: self, cancelButtonTitle: "Close")
+            ZeroAlertView.show()
+        }
         let t = numberFormatter.stringFromNumber(x)!
         switch t
         {
@@ -635,7 +674,15 @@ class CalcViewController: UIViewController {
                 case 104:
                 x = y + x
                 case 110:
-                x = pow(y, 1/x)
+                if x != 0
+                {
+                    x = pow(y, 1/x)
+                }
+                else
+                {
+                    let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to find root 0", delegate: self, cancelButtonTitle: "Close")
+                    ZeroAlertView.show()
+                }
                 default:
                     let t = numberFormatter.stringFromNumber(x)!
                     switch t
