@@ -97,6 +97,7 @@ class CalcViewController: UIViewController {
     var power = 1
     var numberFormatter = NSNumberFormatter()
     var numberLength = 0
+    var indicator = 0
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -248,8 +249,7 @@ class CalcViewController: UIViewController {
                 resultLabel2.text = t
             }
         }
-        
-        if resultLabel2.text?.characters.count > numberLength && resultLabel2.text?.characters.count < 25
+                if resultLabel2.text?.characters.count > numberLength && resultLabel2.text?.characters.count < 25
         {
             var temp = resultLabel2.text?.characters.count
             var result = CGFloat(100-(42 + Int(temp!)))
@@ -545,6 +545,7 @@ class CalcViewController: UIViewController {
     
     @IBAction func operationsV2(sender: UIButton) {
         operationLabel.text = ""
+        indicator = 1
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
         if enterFlag != 1 && igrikFlag == 1
@@ -608,6 +609,7 @@ class CalcViewController: UIViewController {
 
             default:
                 let t = numberFormatter.stringFromNumber(x)!
+                indicator = 0
                 switch t
                 {
                 case let z where z.hasSuffix(".0"):
@@ -958,14 +960,13 @@ class CalcViewController: UIViewController {
         buttonAnimation(oper4OutletV2)
     }
     
-    
     @IBAction func equalOperation(sender: AnyObject) {
         buttonAnimation(equalOutletV2)
     }
     
     @IBAction func showNumber(sender: UIButton)
     {
-        if resultLabel.text?.characters.count > 19
+        if resultLabel.text?.characters.count > numberLength
         {
             let ShowNumberAlert = UIAlertView(title: "Your full number", message: "\(Double(x))", delegate: self, cancelButtonTitle: "Close")
             ShowNumberAlert.show()
