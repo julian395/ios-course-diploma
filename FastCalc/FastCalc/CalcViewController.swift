@@ -267,7 +267,7 @@ class CalcViewController: UIViewController {
                 resultLabel2.text = t
             }
         }
-        if resultLabel2.text?.characters.count > numberLength && resultLabel2.text?.characters.count < numberLength + 4
+        if resultLabel2.text?.characters.count > numberLength && resultLabel2.text?.characters.count < numberLength + 7
         {
             var temp = resultLabel2.text?.characters.count
             var result = CGFloat(100-(42 + Int(temp!)))
