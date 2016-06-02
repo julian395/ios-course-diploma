@@ -8,6 +8,8 @@
 
 import UIKit
 import Spring
+import AudioToolbox
+import AVFoundation
 
 class CalcViewController: UIViewController {
 
@@ -98,29 +100,43 @@ class CalcViewController: UIViewController {
     var numberFormatter = NSNumberFormatter()
     var numberLength = 0
     var indicator = 0
+    var temp = 0
+    
+    var soundPath = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Tock", ofType: "mp3")!)
+    var soundPath2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("buttonError", ofType: "mp3")!)
+    var soundPath3 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("delete", ofType: "mp3")!)
+    var soundPath4 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("negative", ofType: "mp3")!)
+    var soundPath5 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("buttonTap3", ofType: "wav")!)
+   
+    var soundID:SystemSoundID = 0
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        if mainView.frame.width == 375
-        {
-            numberLength = 13
+        
+
+        switch UIDevice().type {
+        case .iPhone4:
+            numberLength = 12
+        case .iPhone4S:
+            numberLength = 12
+        case .iPhone5:
+            numberLength  = 12
+        case .iPhone5C:
+            numberLength  = 12
+        case .iPhone5S:
+            numberLength  = 12
+        case .iPhone6:
+            numberLength  = 15
+        case .iPhone6S:
+            numberLength  = 15
+        case .iPhone6Splus:
+            numberLength  = 16
+        case .iPhone6plus:
+            numberLength  = 16
+        default:
+           numberLength = 20
         }
-        if mainView.frame.width == 320
-        {
-            numberLength = 11
-        }
-        if mainView.frame.width == 414
-        {
-           numberLength = 15
-        }
-        if mainView.frame.width > 414
-        {
-            numberLength = 19
-        }
-        if mainView.frame.width < 320
-        {
-            numberLength = 11
-        }
+        
         resultLabel.text = "0"
         moreView.hidden = true
         mainView.hidden = true
@@ -192,6 +208,8 @@ class CalcViewController: UIViewController {
     
     
     @IBAction func digitalsV2(sender: AnyObject) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
         switch sender.tag
         {
         case 0:
@@ -249,7 +267,7 @@ class CalcViewController: UIViewController {
                 resultLabel2.text = t
             }
         }
-                if resultLabel2.text?.characters.count > numberLength && resultLabel2.text?.characters.count < 25
+        if resultLabel2.text?.characters.count > numberLength && resultLabel2.text?.characters.count < numberLength + 4
         {
             var temp = resultLabel2.text?.characters.count
             var result = CGFloat(100-(42 + Int(temp!)))
@@ -258,6 +276,8 @@ class CalcViewController: UIViewController {
     }
 
     @IBAction func digitals(sender: AnyObject) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
         switch sender.tag
         {
         case 0:
@@ -298,9 +318,9 @@ class CalcViewController: UIViewController {
             switch t
             {
             case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(t))
+            resultLabel.text = String(Int(t))
             default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
             }
         }
         else
@@ -311,9 +331,9 @@ class CalcViewController: UIViewController {
             switch t
             {
             case let z where z.hasSuffix(".0"):
-                resultLabel.text = " " + String(Int(t))
+                resultLabel.text = String(Int(t))
             default:
-                resultLabel.text = " " + t
+                resultLabel.text = t
             }
         }
         if resultLabel.text?.characters.count > numberLength && resultLabel.text?.characters.count < 27
@@ -326,6 +346,9 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func numberEiler(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(eilerOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -334,14 +357,17 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     
     @IBAction func xCube(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(xCubeOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -350,13 +376,16 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     @IBAction func xSquare(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(xSquareOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -365,29 +394,45 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     
     @IBAction func sqrtX(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(sqrtXOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
+        if x > -1
+        {
         x = sqrt(x)
+        }
+        else
+        {
+            AudioServicesCreateSystemSoundID(soundPath2, &soundID)
+            AudioServicesPlaySystemSound(soundID)
+            let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to find root 0", delegate: self, cancelButtonTitle: "Close")
+            ZeroAlertView.show()
+        }
         let t = numberFormatter.stringFromNumber(x)!
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     @IBAction func oneToX(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(OneToXOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -397,6 +442,8 @@ class CalcViewController: UIViewController {
         }
         else
         {
+            AudioServicesCreateSystemSoundID(soundPath2, &soundID)
+            AudioServicesPlaySystemSound(soundID)
             let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to divide by 0", delegate: self, cancelButtonTitle: "Close")
             ZeroAlertView.show()
         }
@@ -404,13 +451,16 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     @IBAction func numberPi(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(piOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -419,13 +469,16 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     @IBAction func sinus(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(sinusOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -434,14 +487,17 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     
     @IBAction func logarifm(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(logarifmOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -451,6 +507,8 @@ class CalcViewController: UIViewController {
         }
         else
         {
+            AudioServicesCreateSystemSoundID(soundPath2, &soundID)
+            AudioServicesPlaySystemSound(soundID)
             let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to find ln 0", delegate: self, cancelButtonTitle: "Close")
             ZeroAlertView.show()
         }
@@ -458,14 +516,17 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     
     @IBAction func eilerToX(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(eilerToXOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -474,13 +535,16 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     @IBAction func tangens(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(tangensOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -489,13 +553,16 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     @IBAction func cosinus(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(cosinusOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -504,14 +571,17 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     
     @IBAction func inverseV2(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(inverseOutletV2)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -520,14 +590,17 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel2.text = " " + t
+            resultLabel2.text = t
         default:
-            resultLabel2.text = " " + t
+            resultLabel2.text = t
         }
     }
     
     
     @IBAction func inverse(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(inverseOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -536,14 +609,17 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + t
+            resultLabel.text = t
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
     }
     
     
     @IBAction func operationsV2(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         operationLabel.text = ""
         indicator = 1
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -568,6 +644,8 @@ class CalcViewController: UIViewController {
                 }
                 else
                 {
+                    AudioServicesCreateSystemSoundID(soundPath2, &soundID)
+                    AudioServicesPlaySystemSound(soundID)
                     let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to divide by 0", delegate: self, cancelButtonTitle: "Close")
                     ZeroAlertView.show()
                 }
@@ -613,9 +691,9 @@ class CalcViewController: UIViewController {
                 switch t
                 {
                 case let z where z.hasSuffix(".0"):
-                    resultLabel2.text = " " + String(Int(t))
+                    resultLabel2.text = String(Int(t))
                 default:
-                    resultLabel2.text = " " + t
+                    resultLabel2.text = t
                 }
                 
             }
@@ -636,9 +714,9 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel2.text = " " + String(Int(t))
+            resultLabel2.text = String(Int(t))
         default:
-            resultLabel2.text = " " + t
+            resultLabel2.text = t
         }
         if resultLabel2.text?.characters.count > 10
         {
@@ -653,6 +731,9 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func operations(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
         if enterFlag != 1 && igrikFlag == 1
@@ -666,8 +747,10 @@ class CalcViewController: UIViewController {
                 }
                 else
                 {
-                let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to divide by 0", delegate: self, cancelButtonTitle: "Close")
-                ZeroAlertView.show()
+                    AudioServicesCreateSystemSoundID(soundPath2, &soundID)
+                    AudioServicesPlaySystemSound(soundID)
+                    let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to divide by 0", delegate: self, cancelButtonTitle: "Close")
+                    ZeroAlertView.show()
                 }
                 case 102:
                 x = y * x
@@ -676,12 +759,14 @@ class CalcViewController: UIViewController {
                 case 104:
                 x = y + x
                 case 110:
-                if x != 0
+                if x != 0 && y > -1
                 {
                     x = pow(y, 1/x)
                 }
                 else
                 {
+                    AudioServicesCreateSystemSoundID(soundPath2, &soundID)
+                    AudioServicesPlaySystemSound(soundID)
                     let ZeroAlertView = UIAlertView(title: "Error", message: "You are trying to find root 0", delegate: self, cancelButtonTitle: "Close")
                     ZeroAlertView.show()
                 }
@@ -690,9 +775,9 @@ class CalcViewController: UIViewController {
                     switch t
                     {
                     case let z where z.hasSuffix(".0"):
-                        resultLabel.text = " " + String(Int(t))
+                        resultLabel.text = String(Int(t))
                     default:
-                        resultLabel.text = " " + t
+                        resultLabel.text = t
                 }
             }
         }
@@ -713,9 +798,9 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel.text = " " + String(Int(t))
+            resultLabel.text = String(Int(t))
         default:
-            resultLabel.text = " " + t
+            resultLabel.text = t
         }
         if resultLabel.text?.characters.count > 10
         {
@@ -732,30 +817,41 @@ class CalcViewController: UIViewController {
     
     @IBAction func divideButtonAnimation(sender: MyCustomButton) {
        buttonAnimation(operation1)
+
     }
     
     @IBAction func multiplyButtonAnimation(sender: MyCustomButton) {
         buttonAnimation(operation2)
+       
     }
     
     @IBAction func minusButtonAnimation(sender: MyCustomButton) {
         buttonAnimation(operation3)
+
     }
     
     @IBAction func plusButtonAmination(sender: MyCustomButton) {
         buttonAnimation(operation4)
+
     }
     
     @IBAction func equalButtonAnimation(sender: MyCustomButton) {
         buttonAnimation(equalOutlet)
+
     }
 
     @IBAction func igrikToXAnimation(sender: MyCustomButton) {
         buttonAnimation(igrikToXOutlet)
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
     }
     
     
     @IBAction func percentV2(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         operationLabel.text = ""
         buttonAnimation(percentOutletV2)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -766,15 +862,18 @@ class CalcViewController: UIViewController {
         switch t
         {
         case let z where z.hasSuffix(".0"):
-            resultLabel2.text = " " + t
+            resultLabel2.text = t
             operationLabel.text = operationLabel.text! + " % " + " = " + t
         default:
-            resultLabel2.text = " " + t
+            resultLabel2.text = t
             operationLabel.text = operationLabel.text! + " % " + " = " + t
         }
     }
     
     @IBAction func percent(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(percentOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -790,6 +889,9 @@ class CalcViewController: UIViewController {
     }
  
     @IBAction func decimal(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(decimalOutlet)
         if decimalPoint == 0
         {
@@ -800,6 +902,9 @@ class CalcViewController: UIViewController {
     
     
     @IBAction func decimalV2(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         buttonAnimation(decimalOutletV2)
         if decimalPoint == 0
         {
@@ -824,6 +929,8 @@ class CalcViewController: UIViewController {
         operationLabel.hidden = true
         buttonAnimation(clearOutletV2)
         if resultLabel2.text != "0" {
+        AudioServicesCreateSystemSoundID(soundPath3, &soundID)
+        AudioServicesPlaySystemSound(soundID)
         resultLabel2.animation = "flipX"
         resultLabel2.curve = "easeInOut"
         resultLabel2.force = 3.6
@@ -837,6 +944,11 @@ class CalcViewController: UIViewController {
             {
                 self.resultLabel2.text = "0"
             }
+        }
+        else
+        {
+            AudioServicesCreateSystemSoundID(soundPath4, &soundID)
+            AudioServicesPlaySystemSound(soundID)
         }
         resultLabel2.font = UIFont(name: (resultLabel2.font?.fontName)!, size: 50)
         x = 0
@@ -853,6 +965,8 @@ class CalcViewController: UIViewController {
     @IBAction func clearAll(sender: UIButton) {
         buttonAnimation(clearOutlet)
         if resultLabel.text != "0" {
+            AudioServicesCreateSystemSoundID(soundPath3, &soundID)
+            AudioServicesPlaySystemSound(soundID)
             resultLabel.animation = "flipX"
             resultLabel.curve = "easeInOut"
             resultLabel.force = 3.6
@@ -867,6 +981,11 @@ class CalcViewController: UIViewController {
                 self.resultLabel.text = "0"
             }
         }
+        else
+        {
+            AudioServicesCreateSystemSoundID(soundPath4, &soundID)
+            AudioServicesPlaySystemSound(soundID)
+        }
         resultLabel.font = UIFont(name: (resultLabel.font?.fontName)!, size: 50)
         x = 0
         y = 0
@@ -878,6 +997,9 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func changeCalc(sender: UIButton) {
+        AudioServicesCreateSystemSoundID(soundPath5, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+
         if moreView.hidden == true
         {
             btnChange.animation = "flipY"
@@ -945,29 +1067,36 @@ class CalcViewController: UIViewController {
     
     @IBAction func operation1004(sender: AnyObject) {
         buttonAnimation(oper1OutletV2)
+
     }
     
     @IBAction func operation1003(sender: AnyObject) {
         buttonAnimation(oper2OutletV2)
+
     }
     
     @IBAction func operation1002(sender: AnyObject) {
         buttonAnimation(oper3OutletV2)
+
     }
     
     
     @IBAction func operation1001(sender: AnyObject) {
         buttonAnimation(oper4OutletV2)
+
     }
     
     @IBAction func equalOperation(sender: AnyObject) {
         buttonAnimation(equalOutletV2)
+
     }
     
     @IBAction func showNumber(sender: UIButton)
     {
         if resultLabel.text?.characters.count > numberLength
         {
+            AudioServicesCreateSystemSoundID(soundPath, &soundID)
+            AudioServicesPlaySystemSound(soundID)
             let ShowNumberAlert = UIAlertView(title: "Your full number", message: "\(Double(x))", delegate: self, cancelButtonTitle: "Close")
             ShowNumberAlert.show()
         }
