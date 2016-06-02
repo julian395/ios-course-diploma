@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FastCalc/CalcViewController.swift"
-            timestampString = "486569138.139236"
+            timestampString = "486600310.852954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
+            startingLineNumber = "412"
+            endingLineNumber = "412"
             landmarkName = "digitals(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FastCalc/CalcViewController.swift"
-            timestampString = "486569138.139236"
+            timestampString = "486598435.612969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FastCalc/CalcViewController.swift"
-            timestampString = "486569138.139236"
+            timestampString = "486600310.852954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "digitalsV2(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FastCalc/CalcViewController.swift"
-            timestampString = "486569138.139236"
+            timestampString = "486600310.852954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
             landmarkName = "digitalsV2(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FastCalc/CalcViewController.swift"
-            timestampString = "486569138.139236"
+            timestampString = "486600310.852954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "digitalsV2(_:)"
             landmarkType = "5">
          </BreakpointContent>

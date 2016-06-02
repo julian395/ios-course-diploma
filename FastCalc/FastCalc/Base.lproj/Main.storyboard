@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Calc View Controller-->
@@ -38,14 +39,24 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         </variation>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCV-Af-Yuv" customClass="SpringButton" customModule="Spring">
+                                        <rect key="frame" x="306" y="24" width="48" height="37"/>
+                                        <state key="normal" image="volume_up"/>
+                                        <connections>
+                                            <action selector="voiceNumbers:" destination="par-9u-aur" eventType="touchUpInside" id="Xxc-ZW-92K"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.19329383680000001" blue="0.2413069903" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fCV-Af-Yuv" secondAttribute="trailing" constant="21" id="2kN-rd-6ah"/>
                                     <constraint firstItem="QBq-ld-MJY" firstAttribute="centerX" secondItem="1NK-Gu-EjK" secondAttribute="centerX" id="2xM-06-15Q"/>
                                     <constraint firstAttribute="bottom" secondItem="QBq-ld-MJY" secondAttribute="bottom" constant="9" id="Fx6-zX-RGT"/>
                                     <constraint firstItem="m7E-E4-Vfv" firstAttribute="leading" secondItem="1NK-Gu-EjK" secondAttribute="leading" constant="30" id="bj4-lU-BFq"/>
                                     <constraint firstAttribute="bottom" secondItem="m7E-E4-Vfv" secondAttribute="bottom" constant="9" id="gmj-3w-ntn"/>
+                                    <constraint firstAttribute="bottom" secondItem="fCV-Af-Yuv" secondAttribute="bottom" constant="9" id="hWG-2s-lj4"/>
+                                    <constraint firstItem="fCV-Af-Yuv" firstAttribute="centerY" secondItem="QBq-ld-MJY" secondAttribute="centerY" id="ide-gr-5D7"/>
                                     <constraint firstItem="m7E-E4-Vfv" firstAttribute="centerY" secondItem="QBq-ld-MJY" secondAttribute="centerY" id="u75-JI-lOg"/>
                                 </constraints>
                             </view>
@@ -932,6 +943,15 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tap to hear the numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGA-HK-BnT" customClass="SpringLabel" customModule="Spring">
+                                <rect key="frame" x="123" y="74" width="195" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.39814609289169312" green="0.90971225500106812" blue="0.89819109439849854" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hand_up" translatesAutoresizingMaskIntoConstraints="NO" id="m8D-yU-48w" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="318" y="72" width="26" height="26"/>
+                            </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgL-Ym-Ofu" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="0.0" y="65" width="375" height="188"/>
                                 <subviews>
@@ -1302,6 +1322,8 @@
                             <constraint firstAttribute="trailing" secondItem="6IA-3h-1gh" secondAttribute="trailing" id="7lo-Oq-yuX"/>
                             <constraint firstItem="C3g-BR-wZ8" firstAttribute="top" secondItem="0e3-k5-egV" secondAttribute="bottom" id="A5S-73-ykE"/>
                             <constraint firstItem="0e3-k5-egV" firstAttribute="leading" secondItem="UmR-Ke-HaK" secondAttribute="leading" id="BSL-ZK-Dsh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m8D-yU-48w" secondAttribute="trailing" id="BXo-xR-nwL"/>
+                            <constraint firstItem="m8D-yU-48w" firstAttribute="top" secondItem="UmR-Ke-HaK" secondAttribute="topMargin" constant="72" id="D4G-1M-wVI"/>
                             <constraint firstAttribute="trailing" secondItem="qgL-Ym-Ofu" secondAttribute="trailing" id="Dgs-kh-t7A"/>
                             <constraint firstItem="0e3-k5-egV" firstAttribute="leading" secondItem="UmR-Ke-HaK" secondAttribute="leading" id="DyF-Me-Cex"/>
                             <constraint firstItem="6IA-3h-1gh" firstAttribute="top" secondItem="qgL-Ym-Ofu" secondAttribute="bottom" id="FIj-FO-gHG"/>
@@ -1324,7 +1346,9 @@
                             <constraint firstItem="C3W-si-1RD" firstAttribute="leading" secondItem="UmR-Ke-HaK" secondAttribute="leading" id="ZaS-LV-dhU"/>
                             <constraint firstItem="0e3-k5-egV" firstAttribute="top" secondItem="TSN-3F-G8N" secondAttribute="bottom" constant="45" id="aSj-lx-tBZ"/>
                             <constraint firstAttribute="trailing" secondItem="1Df-zq-hCw" secondAttribute="trailing" id="bJh-lJ-Qma"/>
+                            <constraint firstItem="rGA-HK-BnT" firstAttribute="top" secondItem="UmR-Ke-HaK" secondAttribute="topMargin" constant="74" id="bua-Ty-h8E"/>
                             <constraint firstItem="1Cc-vx-1a7" firstAttribute="top" secondItem="C3g-BR-wZ8" secondAttribute="bottom" id="ctS-ef-LOp"/>
+                            <constraint firstItem="m8D-yU-48w" firstAttribute="top" secondItem="UmR-Ke-HaK" secondAttribute="topMargin" constant="72" id="d4s-1o-Y8J"/>
                             <constraint firstAttribute="trailing" secondItem="0e3-k5-egV" secondAttribute="trailing" id="dbj-RA-2Xt"/>
                             <constraint firstAttribute="trailing" secondItem="0e3-k5-egV" secondAttribute="trailing" id="eIs-Wu-bsO"/>
                             <constraint firstAttribute="trailing" secondItem="C3g-BR-wZ8" secondAttribute="trailing" id="f8D-kz-2M9"/>
@@ -1342,13 +1366,17 @@
                             <constraint firstItem="C3g-BR-wZ8" firstAttribute="leading" secondItem="UmR-Ke-HaK" secondAttribute="leading" id="qrx-r4-cn3"/>
                             <constraint firstItem="1Cc-vx-1a7" firstAttribute="top" secondItem="C3g-BR-wZ8" secondAttribute="bottom" id="swg-WI-SRF"/>
                             <constraint firstItem="Obn-IU-oSs" firstAttribute="top" secondItem="C3W-si-1RD" secondAttribute="bottom" id="vte-jw-0ld"/>
+                            <constraint firstItem="m8D-yU-48w" firstAttribute="top" secondItem="UmR-Ke-HaK" secondAttribute="topMargin" constant="72" id="wXr-78-9sM"/>
                             <constraint firstItem="C3g-BR-wZ8" firstAttribute="top" secondItem="0e3-k5-egV" secondAttribute="bottom" id="yVk-YS-JB0"/>
                             <constraint firstItem="1Df-zq-hCw" firstAttribute="top" secondItem="1NK-Gu-EjK" secondAttribute="bottom" constant="147" id="ybC-DH-rmv"/>
+                            <constraint firstItem="m8D-yU-48w" firstAttribute="leading" secondItem="rGA-HK-BnT" secondAttribute="trailing" id="z6E-IF-0mp"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="OneToXOutlet" destination="2aw-9d-BRO" id="821-3U-Uof"/>
+                        <outlet property="animateImg" destination="m8D-yU-48w" id="GcJ-hD-ahN"/>
+                        <outlet property="animateLabel" destination="rGA-HK-BnT" id="npB-HK-Q0c"/>
                         <outlet property="btnChange" destination="m7E-E4-Vfv" id="1yR-na-vaY"/>
                         <outlet property="clearOutlet" destination="L0j-zX-SJT" id="X7E-0c-o8E"/>
                         <outlet property="clearOutletV2" destination="wIg-dy-37J" id="cX1-3a-r3t"/>
@@ -1404,13 +1432,18 @@
                         <outlet property="sinusOutlet" destination="Jze-xg-e0Y" id="CQJ-fi-GlX"/>
                         <outlet property="sqrtXOutlet" destination="FKI-qU-xj1" id="YCS-zT-Yad"/>
                         <outlet property="tangensOutlet" destination="gJi-ZK-GTV" id="vmU-HE-gNj"/>
+                        <outlet property="voiceButton" destination="fCV-Af-Yuv" id="ZMS-6p-y71"/>
                         <outlet property="xCubeOutlet" destination="Gao-Ny-g7y" id="sK8-3B-3ik"/>
                         <outlet property="xSquareOutlet" destination="2tI-HZ-fcV" id="2MB-ub-faT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zaT-ni-MTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-343.5" y="242.5"/>
+            <point key="canvasLocation" x="-443.5" y="228.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hand_up" width="25" height="25"/>
+        <image name="volume_up" width="24" height="24"/>
+    </resources>
 </document>
