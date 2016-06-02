@@ -292,7 +292,7 @@ class CalcViewController: UIViewController {
         numberFormatter.locale = NSLocale.currentLocale()
         
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         if enterFlag == 1
         {
@@ -370,7 +370,7 @@ class CalcViewController: UIViewController {
         numberFormatter.locale = NSLocale.currentLocale()
         
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         if enterFlag == 1
         {
@@ -420,7 +420,7 @@ class CalcViewController: UIViewController {
 
         
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(eilerOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -443,7 +443,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
 
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(xCubeOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -465,7 +465,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
 
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(xSquareOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -488,7 +488,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
 
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(sqrtXOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -520,7 +520,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
 
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(OneToXOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -552,7 +552,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
         
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(piOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -574,7 +574,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
 
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(sinusOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -597,7 +597,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
         
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(logarifmOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -630,7 +630,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
         
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(eilerToXOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -652,7 +652,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
 
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(tangensOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -674,7 +674,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
 
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(cosinusOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -697,7 +697,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
         
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(inverseOutletV2)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -720,7 +720,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
         
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(inverseOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -743,7 +743,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
 
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         operationLabel.text = ""
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -860,7 +860,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
         
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.locale = NSLocale.currentLocale()
@@ -984,7 +984,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
 
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         operationLabel.text = ""
         buttonAnimation(percentOutletV2)
@@ -1010,7 +1010,7 @@ class CalcViewController: UIViewController {
         AudioServicesPlaySystemSound(soundID)
         
         formatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-        numberFormatter.locale = NSLocale.currentLocale()
+        formatter.locale = NSLocale.currentLocale()
 
         buttonAnimation(percentOutlet)
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
