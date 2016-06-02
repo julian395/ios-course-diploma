@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,17 +18,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="FastCalc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyz-oe-1Ad">
-                                <rect key="frame" x="88" y="148" width="198" height="118"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CQK-sM-Ozv">
+                                <rect key="frame" x="87" y="294" width="200" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fast" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rK5-VT-aM3">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
+                                        <color key="backgroundColor" red="1" green="0.46853193500000001" blue="0.32110512499999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Calc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-Jx-nlH">
+                                        <rect key="frame" x="100" y="0.0" width="100" height="80"/>
+                                        <color key="backgroundColor" red="1" green="0.46853193500000001" blue="0.32110512499999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rK5-VT-aM3" secondAttribute="bottom" id="2xo-al-s7E"/>
+                                    <constraint firstItem="rK5-VT-aM3" firstAttribute="height" secondItem="xmf-Jx-nlH" secondAttribute="height" id="7iP-RO-ZxB"/>
+                                    <constraint firstItem="xmf-Jx-nlH" firstAttribute="top" secondItem="CQK-sM-Ozv" secondAttribute="top" id="FCW-tz-J9C"/>
+                                    <constraint firstItem="xmf-Jx-nlH" firstAttribute="leading" secondItem="rK5-VT-aM3" secondAttribute="trailing" id="KeF-7L-k8f"/>
+                                    <constraint firstAttribute="bottom" secondItem="xmf-Jx-nlH" secondAttribute="bottom" id="Nnp-ob-ynt"/>
+                                    <constraint firstItem="rK5-VT-aM3" firstAttribute="leading" secondItem="CQK-sM-Ozv" secondAttribute="leading" id="U3j-Xv-1cp"/>
+                                    <constraint firstItem="rK5-VT-aM3" firstAttribute="width" secondItem="xmf-Jx-nlH" secondAttribute="width" id="Uit-Lb-w4m"/>
+                                    <constraint firstItem="rK5-VT-aM3" firstAttribute="top" secondItem="CQK-sM-Ozv" secondAttribute="top" id="Wyv-So-4rW"/>
+                                    <constraint firstAttribute="trailing" secondItem="xmf-Jx-nlH" secondAttribute="trailing" id="qP8-GJ-h9y"/>
+                                    <constraint firstItem="xmf-Jx-nlH" firstAttribute="leading" secondItem="rK5-VT-aM3" secondAttribute="trailing" id="yH8-vY-zaq"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="1_Primary_logo_on_transparent_369x75" translatesAutoresizingMaskIntoConstraints="NO" id="XQc-6A-57S">
+                                <rect key="frame" x="225" y="637" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Dbt-dD-qy5"/>
+                                    <constraint firstAttribute="width" constant="150" id="k2h-Va-PtX"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.46853193500000001" blue="0.32110512499999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Yyz-oe-1Ad" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Nx6-34-P8x"/>
-                            <constraint firstItem="Yyz-oe-1Ad" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="x8n-et-Lyr"/>
+                            <constraint firstItem="CQK-sM-Ozv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FDb-Bb-s9X"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="XQc-6A-57S" secondAttribute="bottom" id="HWJ-6f-6KI"/>
+                            <constraint firstItem="CQK-sM-Ozv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Pma-m8-QVo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XQc-6A-57S" secondAttribute="trailing" id="tnS-YG-q2j"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -37,4 +73,7 @@
             <point key="canvasLocation" x="52.5" y="374.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1_Primary_logo_on_transparent_369x75" width="397" height="75"/>
+    </resources>
 </document>
