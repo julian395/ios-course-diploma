@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FastCalc/CalcViewController.swift"
-            timestampString = "486600310.852954"
+            timestampString = "486643243.338408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "949"
-            endingLineNumber = "949"
+            startingLineNumber = "959"
+            endingLineNumber = "959"
             landmarkName = "divideButtonAnimation(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FastCalc/CalcViewController.swift"
-            timestampString = "486600310.852954"
+            timestampString = "486643243.338408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
+            startingLineNumber = "353"
+            endingLineNumber = "353"
             landmarkName = "digitals(_:)"
             landmarkType = "5">
          </BreakpointContent>

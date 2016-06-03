@@ -221,6 +221,16 @@ class CalcViewController: UIViewController {
             self.animateImg.duration = 1.0
             self.animateImg.animate()
             
+            let delay2 = 8.5 * Double(NSEC_PER_SEC)
+            let time2 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
+            dispatch_after(time2, dispatch_get_main_queue())
+            {
+                self.animateLabel.animation = "pop"
+                self.animateLabel.curve = "easeIn"
+                self.animateLabel.duration = 1.0
+                self.animateLabel.animate()
+            }
+            
             let delay = 15.5 * Double(NSEC_PER_SEC)
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue())

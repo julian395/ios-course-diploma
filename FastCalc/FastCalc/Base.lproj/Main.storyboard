@@ -41,7 +41,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCV-Af-Yuv" customClass="SpringButton" customModule="Spring">
                                         <rect key="frame" x="306" y="24" width="48" height="37"/>
-                                        <state key="normal" image="volume_up"/>
+                                        <state key="normal" image="high_volume_filled"/>
                                         <connections>
                                             <action selector="voiceNumbers:" destination="par-9u-aur" eventType="touchUpInside" id="Xxc-ZW-92K"/>
                                         </connections>
@@ -1457,6 +1457,6 @@
     </scenes>
     <resources>
         <image name="hand_up" width="25" height="25"/>
-        <image name="volume_up" width="24" height="24"/>
+        <image name="high_volume_filled" width="25" height="25"/>
     </resources>
 </document>
