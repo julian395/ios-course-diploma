@@ -1293,6 +1293,7 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func voiceNumbers(sender: UIButton) {
+        synth.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
         animateLabel.animation = "zoomOut"
         animateLabel.curve = "easeIn"
         animateLabel.duration = 1.0
